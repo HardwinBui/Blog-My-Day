@@ -8,11 +8,21 @@ import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
+
+// Auth0 imports
+import LoginButton from './components/Auth0/loginButton';
+import LogoutButton from './components/Auth0/logoutButton';
+import UserProfile from './components/Auth0/userProfile';
  
 const App = () => {
  return (
    <div>
-     <Navbar />
+    <LoginButton/>
+    <LogoutButton/>
+    <p>The user info is below</p>
+    <UserProfile/>
+
+     <Navbar/>
      <Routes>
        <Route exact path="/" element={<RecordList />} />
        <Route path="/edit/:id" element={<Edit />} />

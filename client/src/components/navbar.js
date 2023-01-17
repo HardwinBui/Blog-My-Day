@@ -5,10 +5,17 @@ import "bootstrap/dist/css/bootstrap.css";
  
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
+
+// Auth0 imports
+import LoginButton from './Auth0/loginButton';
+import LogoutButton from './Auth0/logoutButton';
+//import UserProfile from './Auth0/userProfile';
+import { useAuth0 } from "@auth0/auth0-react";
  
 // Here, we display our Navbar
 export default function Navbar() {
- return (
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  return (
    <div>
      <nav className="navbar navbar-expand-lg navbar-light bg-light">
        <NavLink className="navbar-brand" to="/">
@@ -33,6 +40,16 @@ export default function Navbar() {
                Create Record
              </NavLink>
            </li>
+
+           <li className="nav-item">
+            {isAuthenticated ? (
+              <LogoutButton/>
+            ) : (
+              <LoginButton/>
+            )}
+             {String(isLoading)}
+           </li>
+
          </ul>
        </div>
      </nav>
