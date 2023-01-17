@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth0 } from "@auth0/auth0-react";
  
 export default function Create() {
+ const { user } = useAuth0();
  const [form, setForm] = useState({
+   email:user.email,
    name: "",
    position: "",
    level: "",

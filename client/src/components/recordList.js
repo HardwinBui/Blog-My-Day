@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
  
 const Record = (props) => (
  <tr>
+   <td>{props.record.email}</td>
    <td>{props.record.name}</td>
    <td>{props.record.position}</td>
    <td>{props.record.level}</td>
@@ -72,6 +73,7 @@ export default function RecordList() {
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
+           <th>Email</th>
            <th>Name</th>
            <th>Position</th>
            <th>Level</th>

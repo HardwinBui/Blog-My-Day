@@ -13,6 +13,10 @@ import Create from "./components/create";
 import LoginButton from './components/Auth0/loginButton';
 import LogoutButton from './components/Auth0/logoutButton';
 import UserProfile from './components/Auth0/userProfile';
+
+// Main components
+import BlogCreate from "./components/Blog/blogCreate";
+import FeatureBlog from "./components/Blog/featureBlog";
  
 const App = () => {
  return (
@@ -24,9 +28,10 @@ const App = () => {
 
      <Navbar/>
      <Routes>
-       <Route exact path="/" element={<RecordList />} />
+       <Route exact path="/" element={<FeatureBlog />} />
        <Route path="/edit/:id" element={<Edit />} />
-       <Route path="/create" element={<Create />} />
+       <Route path="/createB" element={<Create />} />
+       <Route path="/create" element={<BlogCreate />} />
      </Routes>
    </div>
  );
