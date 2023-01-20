@@ -19,7 +19,8 @@ export default function RecordList() {
  useEffect(() => {
    async function getRecords() {
      const response = await fetch(`http://localhost:5000/post/`);
-     console.log(response.length)
+     // response = response.filter((x) => x.blogID == params.id.toString());
+     //console.log(Array.isArray(response.array()));
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -27,7 +28,11 @@ export default function RecordList() {
        return;
      }
  
-     const records = await response.json();
+     //const
+     var records = await response.json();
+     console.log(Array.isArray(records));
+     records = records.filter(post => post.blogID == params.id.toString());
+     //records = records.filter( (x) => x.blogID === params.id.toString() );
      setRecords(records);
    }
  
