@@ -17,6 +17,9 @@ import UserProfile from './components/Auth0/userProfile';
 // Main components
 import BlogCreate from "./components/Blog/blogCreate";
 import FeatureBlog from "./components/Blog/featureBlog";
+import ViewBlog from "./components/Blog/viewBlog";
+
+import CreatePost from "./components/Post/createPost";
  
 const App = () => {
  return (
@@ -31,7 +34,11 @@ const App = () => {
        <Route exact path="/" element={<FeatureBlog />} />
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/createB" element={<Create />} />
+
        <Route path="/create" element={<BlogCreate />} />
+       <Route path="/viewBlog/:id" element={<ViewBlog />} />
+
+       <Route path="/createPost/:id" element={<CreatePost />} />
      </Routes>
    </div>
  );

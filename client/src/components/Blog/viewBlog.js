@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
  
 const FeatureBlog = (props) => (
  <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.user}</td>
+   <td>{props.record.title}</td>
+   <td>{props.record.content}</td>
    <td>{props.record.likes}</td>
-   <td>
-     <Link className="btn btn-link" to={`/viewBlog/${props.record._id}`}>Edit</Link> 
-   </td>
  </tr>
 );
+
  
 export default function RecordList() {
+    const params = useParams();
  const [records, setRecords] = useState([]);
  
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://localhost:5000/blog/`);
+     const response = await fetch(`http://localhost:5000/post/`);
+     console.log(response.length)
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -61,12 +62,15 @@ export default function RecordList() {
  // This following section will display the table with the records of individuals.
  return (
    <div>
-     <h3>Featured Blogs</h3>
+     <h3>View Blog</h3>
+
+     <Link className="btn btn-link" to={`/createPost/${params.id.toString()}`}>Create Post</Link> 
+
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>Name</th>
-           <th>Email</th>
+           <th>Post Title</th>
+           <th>Description</th>
            <th>Likes</th>
          </tr>
        </thead>
