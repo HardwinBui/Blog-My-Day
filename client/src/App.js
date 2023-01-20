@@ -18,25 +18,22 @@ import UserProfile from './components/Auth0/userProfile';
 import BlogCreate from "./components/Blog/blogCreate";
 import FeatureBlog from "./components/Blog/featureBlog";
 import ViewBlog from "./components/Blog/viewBlog";
+import UserBlog from "./components/Blog/userBlog";
 
 import CreatePost from "./components/Post/createPost";
  
 const App = () => {
  return (
    <div>
-    <LoginButton/>
-    <LogoutButton/>
-    <p>The user info is below</p>
-    <UserProfile/>
-
      <Navbar/>
      <Routes>
        <Route exact path="/" element={<FeatureBlog />} />
        <Route path="/edit/:id" element={<Edit />} />
-       <Route path="/createB" element={<Create />} />
+       <Route path="/create" element={<Create />} />
 
-       <Route path="/create" element={<BlogCreate />} />
+       <Route path="/createBlog" element={<BlogCreate />} />
        <Route path="/viewBlog/:id" element={<ViewBlog />} />
+       <Route path="/userBlog" element={<UserBlog />} />
 
        <Route path="/createPost/:id" element={<CreatePost />} />
      </Routes>

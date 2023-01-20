@@ -9,6 +9,8 @@ ReactDOM.render(
     domain="dev-gu2ural13ockmvha.us.auth0.com"
     clientId="5nARigvDlooDwUXR5FCf0pZ76HltxpG5"
     redirectUri={window.location.origin}
+    useRefreshTokens
+    cacheLocation="localstorage"
   >
     <React.StrictMode>
       <BrowserRouter>

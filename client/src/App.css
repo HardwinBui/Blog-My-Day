@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #1e1b2b;
+  color: #fff;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  height: 56px;
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  justify-content: space-between;
+}
+
+span{
+  padding: 0rem;
+}
+
+.astext {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+  color: #fff;
+}
+
+a:link, a:visited {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.vl {
+  border-left: 3px solid rgb(255, 255, 255);
+  height: 15px;
+  padding-left: 10px;
+}
+
+.center-text {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.child {
+    text-align: center;   /* If we want the child element's content horiz centered within its own container */
+}
