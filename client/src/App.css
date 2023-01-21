@@ -112,3 +112,23 @@ a:link, a:visited {
 .page-container {
   padding: 25px;
 }
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10px;
+  padding-top: 30px;
+}
+
+.box-container {
+  background-color: #85bba7;
+  padding-top: 10px;
+}
+.box > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  line-height: 15px;
+  font-size: 15px;
+  padding-left: 30px;
+}

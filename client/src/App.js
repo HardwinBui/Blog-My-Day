@@ -21,6 +21,8 @@ import ViewBlog from "./components/Blog/viewBlog";
 import UserBlog from "./components/Blog/userBlog";
 
 import CreatePost from "./components/Post/createPost";
+
+import CreateComment from "./components/Comment/createComment";
  
 const App = () => {
  return (
@@ -36,6 +38,8 @@ const App = () => {
        <Route path="/userBlog" element={<UserBlog />} />
 
        <Route path="/createPost/:id" element={<CreatePost />} />
+
+       <Route path="/createComment/:id" element={<CreateComment />}/>
      </Routes>
    </div>
  );
