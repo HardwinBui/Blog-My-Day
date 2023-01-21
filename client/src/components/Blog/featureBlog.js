@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import '../../App.css';
  
 const FeatureBlog = (props) => (
- <tr>
+  <div>
+    <br/><br/>
+    <h2>{props.record.name}</h2>
+    <br/><br/>
+    <h5>by {props.record.user}</h5>
+    <br/>
+    <Link to={`/viewBlog/${props.record._id}`}>
+        <button class="block">View Blog</button>
+    </Link>
+    <br/><br/><br/>
+  </div>
+/*  <tr>
    <td>{props.record.name}</td>
    <td>{props.record.user}</td>
    <td>{props.record.likes}</td>
    <td>
      <Link className="btn btn-link" to={`/viewBlog/${props.record._id}`}>Edit</Link> 
    </td>
- </tr>
+ </tr> */
 );
  
 export default function RecordList() {
@@ -60,9 +72,13 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div>
+   <div class="page-container">
      <h3>Featured Blogs</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
+    <div class="flex-container">
+      {recordList()}
+    </div>
+
+     {/* <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
            <th>Name</th>
@@ -71,7 +87,7 @@ export default function RecordList() {
          </tr>
        </thead>
        <tbody>{recordList()}</tbody>
-     </table>
+     </table> */}
    </div>
  );
 }

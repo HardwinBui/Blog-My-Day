@@ -82,13 +82,33 @@ a:link, a:visited {
   vertical-align: middle;
 }
 
-.parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(255, 255, 255);
+  padding-top: 30px;
 }
 
-.child {
-    text-align: center;   /* If we want the child element's content horiz centered within its own container */
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 350px;
+  margin: 10px;
+  text-align: center;
+  line-height: 15px;
+  font-size: 15px;
+}
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.page-container {
+  padding: 25px;
 }

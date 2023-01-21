@@ -4,14 +4,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 import '../../App.css';
  
 const FeatureBlog = (props) => (
- <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.user}</td>
-   <td>{props.record.likes}</td>
-   <td>
-     <Link className="btn btn-link" to={`/viewBlog/${props.record._id}`}>Edit</Link> 
-   </td>
- </tr>
+ <div>
+    <br/><br/>
+    <h2>{props.record.name}</h2>
+    <br/><br/>
+    <h5>by {props.record.user}</h5>
+    <br/>
+    <Link to={`/viewBlog/${props.record._id}`}>
+        <button class="block">View Blog</button>
+    </Link>
+    <br/><br/><br/>
+  </div>
 );
  
 export default function RecordList() {
@@ -83,22 +86,16 @@ export default function RecordList() {
     ||
 
     isAuthenticated && (
-   <div>
+    <div class="page-container">
         <div>
             <h3>My Blogs</h3>
-            <Link className="btn btn-link" to={`/createBlog`}>Create Blog</Link> 
+            <Link to={`/createBlog`}>
+                <button class="block">Create Blog</button>
+            </Link>
         </div>
-
-     <table className="table table-striped" style={{ marginTop: 20 }}>
-       <thead>
-         <tr>
-           <th>Name</th>
-           <th>Email</th>
-           <th>Likes</th>
-         </tr>
-       </thead>
-       <tbody>{recordList()}</tbody>
-     </table>
+        <div class="flex-container">
+          {recordList()}
+        </div>
    </div>
  ));
 }

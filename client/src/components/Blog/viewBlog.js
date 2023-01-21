@@ -63,7 +63,7 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div>
+  <div class="page-container">
      <h3>View Blog</h3>
 
      <Link className="btn btn-link" to={`/createPost/${params.id.toString()}`}>Create Post</Link> 
