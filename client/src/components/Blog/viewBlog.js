@@ -19,10 +19,11 @@ const FeatureBlog = (props) => (
 );
 
  
-export default function RecordList() {
+export default function RecordListPoop() {
  const params = useParams();
  const [records, setRecords] = useState([]);
  const { user, isAuthenticated, isLoading } = useAuth0();
+ const [testy2, setUser] = useState([]);
  var blog = [];
  var testy = false;
  
@@ -46,8 +47,10 @@ export default function RecordList() {
      blog = await response2.json();
      //console.log("BLOG: " + blog.user);
      //console.log("USER: " + user.email);
-     if(!isLoading) 
+     if(!isLoading) {
         testy = blog.user == user.email.toString();
+        setUser(testy);
+      }
      console.log("USER2: " + testy);
      setRecords(records);
    }
@@ -79,6 +82,17 @@ export default function RecordList() {
      );
    });
  }
+
+ 
+
+ function createPost() {
+  return (
+    testy2 && 
+      <Link to={`/createPost/${params.id.toString()}`}>
+        <button class="block">Create Post</button>
+      </Link>
+  );
+ }
  
  // This following section will display the table with the records of individuals.
  return (
@@ -86,11 +100,7 @@ export default function RecordList() {
   <div class="page-container">
      <h3>View Blog</h3>
 
-     {testy && 
-      <Link to={`/createPost/${params.id.toString()}`}>
-        <button class="block">Create Post</button>
-      </Link>
-      }
+     {createPost()}
 
      <div class="box">
           {recordList()}
