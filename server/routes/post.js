@@ -67,7 +67,7 @@ postRoutes.route("/update/:id").post(function (req, response) {
 });
  
 // This section will help you delete a post
-postRoutes.route("/:id").delete((req, response) => {
+postRoutes.route("/post/delete/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect.collection("posts").deleteOne(myquery, function (err, obj) {

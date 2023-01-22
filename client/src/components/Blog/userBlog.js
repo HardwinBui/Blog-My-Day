@@ -13,6 +13,11 @@ const FeatureBlog = (props) => (
     <Link to={`/viewBlog/${props.record._id}`}>
         <button class="block">View Blog</button>
     </Link>
+    <br/><br/>
+      <Link onClick={() => { props.deleteRecord(props.record._id); }}>
+        <button class="delete">Delete Blog</button>
+      </Link>
+
     <br/><br/><br/>
   </div>
 );
@@ -32,7 +37,6 @@ export default function RecordList() {
        window.alert(message);
        return;
      }
- 
      
      var records = await response.json();
      if(!isLoading) 
@@ -48,7 +52,7 @@ export default function RecordList() {
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await fetch(`http://localhost:5000/${id}`, {
+   await fetch(`http://localhost:5000/blog/delete/${id}`, {
      method: "DELETE"
    });
  

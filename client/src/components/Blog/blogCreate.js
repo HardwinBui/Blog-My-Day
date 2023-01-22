@@ -36,6 +36,7 @@ export default function BlogCreate() {
      window.alert(error);
      return;
    });
+
  
    setForm({ name: "" });
    navigate("/");

@@ -73,7 +73,7 @@ commentRoutes.route("/update/:id").post(function (req, response) {
 });
  
 // This section will help you delete a comment
-commentRoutes.route("/:id").delete((req, response) => {
+commentRoutes.route("/comment/delete/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect.collection("comments").deleteOne(myquery, function (err, obj) {

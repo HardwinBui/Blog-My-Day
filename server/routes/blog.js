@@ -65,7 +65,7 @@ blogRoutes.route("/update/:id").post(function (req, response) {
 });
  
 // This section will help you delete a blog
-blogRoutes.route("/:id").delete((req, response) => {
+blogRoutes.route("/blog/delete/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect.collection("blogs").deleteOne(myquery, function (err, obj) {
