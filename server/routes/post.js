@@ -8,7 +8,7 @@ const ObjectId = require("mongodb").ObjectId;
  
 // This section will help you get a list of all the posts.
 postRoutes.route("/post").get(function (req, res) {
- let db_connect = dbo.getDb("employees");
+ let db_connect = dbo.getDb("myblog");
  db_connect
    .collection("posts")
    .find({})

@@ -14,7 +14,7 @@ const ObjectId = require("mongodb").ObjectId;
  
 // This section will help you get a list of all the comments.
 commentRoutes.route("/comment").get(function (req, res) {
- let db_connect = dbo.getDb("employees");
+ let db_connect = dbo.getDb("myblog");
  db_connect
    .collection("comments")
    .find({})
