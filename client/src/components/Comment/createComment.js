@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useParams, useNavigate } from "react-router";
  
-export default function BlogCreate() {
+export default function CommentCreate() {
  const { user } = useAuth0();
  const params = useParams();
  const [form, setForm] = useState({
@@ -40,16 +40,17 @@ export default function BlogCreate() {
    });
  
    setForm({ name: "" });
-   navigate("/");
+   navigate(-1);
  }
  
  // This following section will display the form that takes the input from the user.
  return (
-   <div>
-     <h3>Create New Record</h3>
+  <div class="page-container">
+     <h3>Add a Comment</h3>
      <form onSubmit={onSubmit}>
+     <br/>
        <div className="form-group">
-         <label htmlFor="name">Content</label>
+         <label htmlFor="name">Comment</label>
          <input
            type="text"
            className="form-control"
@@ -58,10 +59,11 @@ export default function BlogCreate() {
            onChange={(e) => updateForm({ content: e.target.value })}
          />  
        </div>
+       <br/>
        <div className="form-group">
          <input
            type="submit"
-           value="Create person"
+           value="Add a Comment"
            className="btn btn-primary"
          />
        </div>

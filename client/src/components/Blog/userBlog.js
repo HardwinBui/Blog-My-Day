@@ -93,6 +93,7 @@ export default function RecordList() {
     <div class="page-container">
         <div>
             <h3>My Blogs</h3>
+            <br/>
             <Link to={`/createBlog`}>
                 <button class="block">Create Blog</button>
             </Link>

@@ -11,9 +11,9 @@ function mapComments(id, comm) {
       <div class="comment">
         
         <div>
-          <h7><strong>{record.user}</strong></h7>
-          <br/><br/>
-          <h7>{record.content}</h7>
+          <h6><strong>{record.user}</strong></h6>
+          <br/>
+          <h6>{record.content}</h6>
         </div>
       </div>
     );
@@ -115,7 +115,7 @@ export default function RecordList() {
     <br/>
     <h4>{props.record.title}</h4>
     <br/>
-    <h7>{props.record.content}</h7>
+    <h6>{props.record.content}</h6>
     <br/><br/><br/>
     {printComments(props.record._id.toString(), props.comment)}
 
@@ -123,7 +123,7 @@ export default function RecordList() {
     {deletePost(props.record._id)}
     <br/><br/>
     {addComment(props)}
-    <br/><br/>
+    <br/><br/><br/>
     
   </div>
 );
@@ -156,7 +156,8 @@ export default function RecordList() {
   
   <div class="page-container">
      <h3>{blogInfo.name}</h3>
-
+     <h5>by {blogInfo.user}</h5>
+    <br/>
      {createPost()}
 
      <div class="box">

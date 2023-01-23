@@ -46,9 +46,10 @@ export default function PostCreate() {
  
  // This following section will display the form that takes the input from the user.
  return (
-   <div>
-     <h3>Create New Post</h3>
+  <div class="page-container">
+     <h3>Create a New Post</h3>
      <form onSubmit={onSubmit}>
+     <br/>
        <div className="form-group">
          <label htmlFor="name">Title</label>
          <input
@@ -59,6 +60,7 @@ export default function PostCreate() {
            onChange={(e) => updateForm({ title: e.target.value })}
          />  
        </div>
+       <br/>
        <div className="form-group">
          <label htmlFor="name">Description</label>
          <input
@@ -69,10 +71,11 @@ export default function PostCreate() {
            onChange={(e) => updateForm({ content: e.target.value })}
          />  
        </div>
+       <br/>
        <div className="form-group">
          <input
            type="submit"
-           value="Create person"
+           value="Create Post"
            className="btn btn-primary"
          />
        </div>

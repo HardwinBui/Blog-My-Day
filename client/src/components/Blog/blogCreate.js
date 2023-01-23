@@ -39,16 +39,17 @@ export default function BlogCreate() {
 
  
    setForm({ name: "" });
-   navigate("/");
+   navigate("/userBlog");
  }
  
  // This following section will display the form that takes the input from the user.
  return (
-   <div>
-     <h3>Create New Record</h3>
+  <div class="page-container">
+     <h3>Create a New Blog</h3>
      <form onSubmit={onSubmit}>
+     <br/>
        <div className="form-group">
-         <label htmlFor="name">Name</label>
+         <label htmlFor="name">Title</label>
          <input
            type="text"
            className="form-control"
@@ -57,10 +58,11 @@ export default function BlogCreate() {
            onChange={(e) => updateForm({ name: e.target.value })}
          />  
        </div>
+       <br/>
        <div className="form-group">
          <input
            type="submit"
-           value="Create person"
+           value="Create Blog"
            className="btn btn-primary"
          />
        </div>
