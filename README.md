@@ -9,7 +9,8 @@ A website where people can blog about their day, hobbies, or anything that they 
 https://blogmyday.onrender.com/
 
 
-<h2>Features</h2>
+Features
+----
 __Home Page__ 
 
 __Login Page__ 
