@@ -26,7 +26,7 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://blogmydaybackend.onrender.com/record/`);
+     const response = await fetch(`https://blogmydaybackend.onrender.com/record/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -45,7 +45,7 @@ export default function RecordList() {
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await fetch(`http://blogmydaybackend.onrender.com/${id}`, {
+   await fetch(`https://blogmydaybackend.onrender.com/${id}`, {
      method: "DELETE"
    });
  
