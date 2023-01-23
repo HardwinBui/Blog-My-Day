@@ -1,11 +1,11 @@
 # Blog My Day
 
 
-### Introduction
+<h2>Introduction</h2>
 A website where people can blog about their day, hobbies, or anything that they find interesting. This is built using MERN stack.
 
 
-### Link to Application
+<h2>Link to Application</h2>
 https://blogmyday.onrender.com/
 
 
