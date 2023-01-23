@@ -143,3 +143,25 @@ a:link, a:visited {
   cursor: pointer;
   text-align: center;
 }
+
+.title {
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.comment {
+  background-color: #e05858;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(255, 255, 255);
+  padding-top: 0px;
+}
+
+.comment > div {
+  background-color: #f1f1f1;
+  width: 1000px;
+  margin: 15px;
+  line-height: 15px;
+  font-size: 15px;
+  padding: 20px;
+}

@@ -14,14 +14,6 @@ const FeatureBlog = (props) => (
     </Link>
     <br/><br/><br/>
   </div>
-/*  <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.user}</td>
-   <td>{props.record.likes}</td>
-   <td>
-     <Link className="btn btn-link" to={`/viewBlog/${props.record._id}`}>Edit</Link> 
-   </td>
- </tr> */
 );
  
 export default function RecordList() {
@@ -77,17 +69,6 @@ export default function RecordList() {
     <div class="flex-container">
       {recordList()}
     </div>
-
-     {/* <table className="table table-striped" style={{ marginTop: 20 }}>
-       <thead>
-         <tr>
-           <th>Name</th>
-           <th>Email</th>
-           <th>Likes</th>
-         </tr>
-       </thead>
-       <tbody>{recordList()}</tbody>
-     </table> */}
    </div>
  );
 }

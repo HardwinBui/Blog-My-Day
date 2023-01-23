@@ -23,10 +23,9 @@ export default function Navbar() {
     <div class="nav">      
 
       <div>
-      <span>
-        <NavLink className="nav-link" to="/">
-          Home
-        </NavLink>
+      <span class="title">
+        
+        Blog My Day
       </span>
 
       <span class="vl"></span>

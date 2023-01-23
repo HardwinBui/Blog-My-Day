@@ -4,24 +4,29 @@ import { useParams, useNavigate } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
  
  
- // This method will map out the records on the table
- function recordList2(id, comm) {
+// This method will map out the records on the table
+function mapComments(id, comm) {
   return comm.filter(x => x.postID == id.toString()).map((record) => {
     return (
-      <p>{record.content}</p>
+      <div class="comment">
+        
+        <div>
+          <h7><strong>{record.user}</strong></h7>
+          <br/><br/>
+          <h7>{record.content}</h7>
+        </div>
+      </div>
     );
   });
 }
 
-function test(id, comm) {
+function printComments(id, comm) {
   return (
-    <h5>{recordList2(id, comm)}</h5>
+    <h5>{mapComments(id, comm)}</h5>
   );
  }
  
 
-
- 
 export default function RecordList() {
  const params = useParams();
  const [records, setRecords] = useState([]);
@@ -30,6 +35,7 @@ export default function RecordList() {
  var blog = [];
  var verifyBlog = false;
  const [comment, setComments] = useState([]);
+ const [blogInfo, setBlog] = useState([]);
  
  // This method fetches the records from the database.
  useEffect(() => {
@@ -52,12 +58,15 @@ export default function RecordList() {
 
      var records = await response.json();
      //console.log(Array.isArray(records));
-     if(!isLoading) 
+     if(!isLoading && isAuthenticated) 
         records = records.filter(post => post.blogID == params.id.toString());
      blog = await response2.json();
+     setBlog(blog);
      
      if(!isLoading) {
-        verifyBlog = blog.user == user.email.toString();
+        if(isAuthenticated)
+          verifyBlog = blog.user == user.email.toString();
+        verifyBlog = verifyBlog && isAuthenticated;
         setUser(verifyBlog);
       }
      //console.log("USER2: " + verifyBlog);
@@ -92,23 +101,30 @@ export default function RecordList() {
   );
  }
 
- const FeatureBlog = (props) => (
-  <div class="box-container">
-    <br/>
-    <h2>{props.record.title}</h2>
-    <br/>
-    <h5>{props.record.content}</h5>
-    {test(props.record._id.toString(), props.comment)}
-
-    <br/>
-    
-    
-    {deletePost(props.record._id)}
-    <br/><br/>
+ function addComment(props) {
+  return (
+    isAuthenticated && 
     <Link to={`/createComment/${props.record._id}`}>
         <button class="block">Add Comment</button>
     </Link>
+  );
+ }
+
+ const FeatureBlog = (props) => (
+  <div class="box-container">
+    <br/>
+    <h4>{props.record.title}</h4>
+    <br/>
+    <h7>{props.record.content}</h7>
+    <br/><br/><br/>
+    {printComments(props.record._id.toString(), props.comment)}
+
+    <br/>
+    {deletePost(props.record._id)}
     <br/><br/>
+    {addComment(props)}
+    <br/><br/>
+    
   </div>
 );
  
@@ -126,8 +142,6 @@ export default function RecordList() {
    });
  }
 
- 
-
  function createPost() {
   return (
     verify && 
@@ -136,21 +150,18 @@ export default function RecordList() {
       </Link>
   );
  }
-
-
- 
  
  // This following section will display the table with the records of individuals.
  return (
   
   <div class="page-container">
-     <h3>View Blog</h3>
+     <h3>{blogInfo.name}</h3>
 
      {createPost()}
 
      <div class="box">
-          {recordList()}
-        </div>
+        {recordList()}
+      </div>
    </div>
  );
 }
