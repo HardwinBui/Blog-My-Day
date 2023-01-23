@@ -10,8 +10,16 @@ https://blogmyday.onrender.com/
 
 
 ### Features
-__Home__ 
+__Home Page__ 
 
-__Home__ 
+__Login Page__ 
 
-__Home__ 
+__Your Blogs Page__ 
+
+__View Blog Page__ 
+
+__Create Blog Page__ 
+
+__Create Post Page__ 
+
+__Create Comment Page__ 
