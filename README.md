@@ -2,7 +2,7 @@
 
 
 <h2>Introduction</h2>
-A website where people can blog about their day, hobbies, or anything that they find interesting. This is built using MERN stack.
+BlogMyDay is a web application built with MERN stack where people can blog about their day, hobbies, or anything that they find interesting. When users enter the website, they are presented with all of the blogs created from existing users. They can then click on a specific blog to see all of the respective posts and comments that were made. If the user wants to make their own blogs or comment on other posts, they must sign up and log in. 
 
 
 <h2>Link to Application</h2>
