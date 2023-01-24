@@ -12,6 +12,7 @@ https://blogmyday.onrender.com/
 Features
 ----
 __Home Page__ 
+(screenshots/featured blogs.PNG)
 When users enter the page they will be presented with all of the blogs made by existing users. From here they can either look at indiviual blogs or sign up to make some of their own.
 
 __Login Page__ 
