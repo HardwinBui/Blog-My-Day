@@ -12,7 +12,8 @@ https://blogmyday.onrender.com/
 Features
 ----
 __Home Page__ 
-(screenshots/featured blogs.PNG)
+![featured blogs](https://user-images.githubusercontent.com/27057402/214251331-f6e269d3-a8df-42c4-a2f9-a2046bf00d81.PNG)
+
 When users enter the page they will be presented with all of the blogs made by existing users. From here they can either look at indiviual blogs or sign up to make some of their own.
 
 __Login Page__ 
