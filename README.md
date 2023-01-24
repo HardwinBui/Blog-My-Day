@@ -13,23 +13,29 @@ Features
 ----
 __Home Page__ 
 ![featured blogs](https://user-images.githubusercontent.com/27057402/214251331-f6e269d3-a8df-42c4-a2f9-a2046bf00d81.PNG)
-
 When users enter the page they will be presented with all of the blogs made by existing users. From here they can either look at indiviual blogs or sign up to make some of their own.
 
 __Login Page__ 
+
 Users will sign up or login with the required information. Auth0 was used for the sign up and login functionalities.
 
 __Your Blogs Page__ 
+
 If the user logs into their account, they can access their blog page. Here, they can create a new blog, delete an existing blog, or view any of their blogs.
 
 __View Blog Page__ 
+
 This page allows you to view all the posts and comments made about the blog. If you are logged in, you can comment on any of the posts listed in the blog. If you are the user who created the blog, you can also create a new post in the blog.
 
 __Create Blog Page__ 
+
 Users can create a blog on this page by entering the necessary data. Currently, users only have to specify the title of the blog.
 
 __Create Post Page__ 
+
 Users can make a post here by specifying its title and content.
 
 __Create Comment Page__ 
+![add comment](https://user-images.githubusercontent.com/27057402/214251448-846fd082-0aaf-459c-86a2-a328113660d9.PNG)
+
 Users to make a comment to a post by entering their message here.
