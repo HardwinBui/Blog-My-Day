@@ -8,7 +8,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-gu2ural13ockmvha.us.auth0.com"
     clientId="5nARigvDlooDwUXR5FCf0pZ76HltxpG5"
-    redirectUri="https://blogmyday.onrender.com/"
+    redirectUri={window.location.origin}
     useRefreshTokens
     cacheLocation="localstorage"
   >

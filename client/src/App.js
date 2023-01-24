@@ -27,6 +27,7 @@ const App = () => {
      <Navbar/>
      <Routes>
        <Route exact path="/" element={<FeatureBlog />} />
+       <Route path='*' element={<FeatureBlog />}/>
 
        <Route path="/createBlog" element={<BlogCreate />} />
        <Route path="/viewBlog/:id" element={<ViewBlog />} />
