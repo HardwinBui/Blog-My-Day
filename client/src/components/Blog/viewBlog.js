@@ -58,7 +58,7 @@ export default function RecordList() {
 
      var records = await response.json();
      //console.log(Array.isArray(records));
-     if(!isLoading && isAuthenticated) 
+     if(!isLoading) 
         records = records.filter(post => post.blogID == params.id.toString());
      blog = await response2.json();
      setBlog(blog);
