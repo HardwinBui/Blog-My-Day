@@ -40,9 +40,9 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`https://blogmydaybackend.onrender.com/post/`);
-     const response2 = await fetch(`https://blogmydaybackend.onrender.com/blog/${params.id}`);
-     const response3 = await fetch(`https://blogmydaybackend.onrender.com/comment`);
+     const response = await fetch(`http://localhost:5000/post/`);
+     const response2 = await fetch(`http://localhost:5000/blog/${params.id}`);
+     const response3 = await fetch(`http://localhost:5000/comment`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -84,7 +84,7 @@ export default function RecordList() {
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await fetch(`https://blogmydaybackend.onrender.com/post/delete/${id}`, {
+   await fetch(`http://localhost:5000/post/delete/${id}`, {
      method: "DELETE"
    });
    

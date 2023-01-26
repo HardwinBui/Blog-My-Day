@@ -27,7 +27,7 @@ export default function PostCreate() {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newPerson = { ...form };
  
-   await fetch("https://blogmydaybackend.onrender.com/post/add", {
+   await fetch("http://localhost:5000/post/add", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
