@@ -28,7 +28,7 @@ const App = () => {
      <Routes>
        <Route exact path="/" element={<FeatureBlog />} />
        <Route path='*' element={<FeatureBlog />}/>
-       <Route path="/test" element={<FeatureBlog />} />
+       <Route exact path="/test" element={<FeatureBlog />} />
 
        <Route path="/createBlog" element={<BlogCreate />} />
        <Route path="/viewBlog/:id" element={<ViewBlog />} />
