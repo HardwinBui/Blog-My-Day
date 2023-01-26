@@ -27,7 +27,7 @@ const App = () => {
      <Navbar/>
      <Routes>
        <Route exact path="/" element={<FeatureBlog />} />
-       <Route path='*' element={<FeatureBlog />}/>
+       
        <Route exact path="/test" element={<FeatureBlog />} />
 
        <Route path="/createBlog" element={<BlogCreate />} />
@@ -37,6 +37,7 @@ const App = () => {
        <Route path="/createPost/:id" element={<CreatePost />} />
 
        <Route path="/createComment/:id" element={<CreateComment />}/>
+       <Route path='*' element={<FeatureBlog />}/>
      </Routes>
    </div>
  );
