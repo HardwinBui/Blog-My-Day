@@ -23,6 +23,7 @@ export default function RecordList() {
  useEffect(() => {
    async function getRecords() {
      const response = await fetch(`http://localhost:5000/blog/`);
+     const [searchInput, setSearchInput] = useState("");
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -66,6 +67,14 @@ export default function RecordList() {
  return (
    <div class="page-container">
      <h3>Featured Blogs</h3>
+
+     <input
+      type="search"
+      placeholder="Search here"
+      onChange={handleChange}
+      value={searchInput} />
+
+
     <div class="flex-container">
       {recordList()}
     </div>
