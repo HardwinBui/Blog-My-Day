@@ -3,9 +3,9 @@ import { useNavigate } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
  
 export default function BlogCreate() {
- //const { user } = useAuth0();
+ const { user } = useAuth0();
  const [form, setForm] = useState({
-   user:"",//user.email,
+   user: user.email,
    name: "",
    likes: 0,
  });
