@@ -18,20 +18,23 @@ const FeatureBlog = (props) => (
  
 export default function RecordList() {
  const [records, setRecords] = useState([]);
+ const [searchInput, setSearchInput] = useState([]);
  
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
      const response = await fetch(`http://localhost:5000/blog/`);
-     const [searchInput, setSearchInput] = useState("");
+    
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
        window.alert(message);
        return;
      }
+
+     setSearchInput("");
  
-     const records = await response.json();
+     var records = await response.json();
      setRecords(records);
    }
  
@@ -50,9 +53,13 @@ export default function RecordList() {
    setRecords(newRecords);
  }
  
+ async function filterSearch(filter) {
+    setSearchInput(filter.target.value.toLowerCase());
+ }
+
  // This method will map out the records on the table
  function recordList() {
-   return records.map((record) => {
+   return records.filter(blog => blog.name.toLowerCase().startsWith(searchInput)).map((record) => {
      return (
        <FeatureBlog
          record={record}
@@ -70,10 +77,9 @@ export default function RecordList() {
 
      <input
       type="search"
-      placeholder="Search here"
-      onChange={handleChange}
-      value={searchInput} />
-
+      placeholder="Search blog here"
+      onChange={filterSearch}
+      />
 
     <div class="flex-container">
       {recordList()}
