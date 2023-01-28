@@ -1,9 +1,9 @@
-import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useParams, useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+
  
 export default function PostCreate() {
- const { user } = useAuth0();
  const params = useParams();
  const [form, setForm] = useState({
     blogID: params.id,
@@ -38,11 +38,8 @@ export default function PostCreate() {
      window.alert(error);
      return;
    });
- 
-   setForm({ name: "" });
-   var str = "/viewBlog/" + params.id.toString();
-   navigate(str);
- }
+  }
+
  
  // This following section will display the form that takes the input from the user.
  return (

@@ -42,6 +42,12 @@ export default function Navbar() {
         </NavLink>
       </span>
 
+      <span>
+        <NavLink className="nav-link" to="/notification">
+          Notifications
+        </NavLink>
+      </span>
+
       </div>
 
       <div> 

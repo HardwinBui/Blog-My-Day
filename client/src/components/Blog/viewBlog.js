@@ -4,27 +4,7 @@ import { useParams, useNavigate } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
  
  
-// This method will map out the records on the table
-function mapComments(id, comm) {
-  return comm.filter(x => x.postID == id.toString()).map((record) => {
-    return (
-      <div class="comment">
-        
-        <div>
-          <h6><strong>{record.user}</strong></h6>
-          <br/>
-          <h6>{record.content}</h6>
-        </div>
-      </div>
-    );
-  });
-}
 
-function printComments(id, comm) {
-  return (
-    <h5>{mapComments(id, comm)}</h5>
-  );
- }
  
 
 export default function RecordList() {
@@ -80,7 +60,7 @@ export default function RecordList() {
    getRecords();
  
    return;
- }, [records.length]);
+ }, [records.length, comment.length]);
  
  // This method will delete a record
  async function deleteRecord(id) {
@@ -101,12 +81,54 @@ export default function RecordList() {
   );
  }
 
+ // This method will delete a record
+ async function deleteCommentCall(id) {
+  await fetch(`http://localhost:5000/comment/delete/${id}`, {
+    method: "DELETE"
+  });
+  
+  const newComments = comment.filter((el) => el._id !== id);
+  setRecords(newComments);
+}
+
+ function deleteComment(id, owner) {
+  return (
+    owner && 
+      <Link onClick={() => { deleteCommentCall(id); }}>
+        <button class="delete">Delete Comment</button>
+      </Link>
+  );
+ }
+
  function addComment(props) {
   return (
     isAuthenticated && 
     <Link to={`/createComment/${props.record._id}`}>
         <button class="block">Add Comment</button>
     </Link>
+  );
+ }
+ // This method will map out the records on the table
+function mapComments(id, comm) {
+  return comm.filter(x => x.postID == id.toString()).map((record) => {
+    return (
+      <div class="comment">
+        
+        <div>
+          <h6><strong>{record.user}</strong></h6>
+          <br/>
+          <h6>{record.content}</h6>
+          <br/>
+          {deleteComment(record._id, user.email == record.user.toString())}
+        </div>
+      </div>
+    );
+  });
+}
+
+function printComments(id, comm) {
+  return (
+    <h5>{mapComments(id, comm)}</h5>
   );
  }
 

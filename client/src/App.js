@@ -20,6 +20,8 @@ import UserBlog from "./components/Blog/userBlog";
 import CreatePost from "./components/Post/createPost";
 
 import CreateComment from "./components/Comment/createComment";
+
+import ViewNotification from "./components/Notification/viewNotifications";
  
 const App = () => {
  return (
@@ -33,6 +35,7 @@ const App = () => {
        <Route path="/createBlog" element={<BlogCreate />} />
        <Route path="/viewBlog/:id" element={<ViewBlog />} />
        <Route path="/userBlog" element={<UserBlog />} />
+       <Route path="/notification" element={<ViewNotification />} />
 
        <Route path="/createPost/:id" element={<CreatePost />} />
 
