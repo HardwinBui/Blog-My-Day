@@ -1,8 +1,8 @@
 import React from "react";
- 
+
 // We use Route in order to define the different routes of our application
 import { Route, Routes } from "react-router-dom";
- 
+
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
 
@@ -22,28 +22,28 @@ import CreatePost from "./components/Post/createPost";
 import CreateComment from "./components/Comment/createComment";
 
 import ViewNotification from "./components/Notification/viewNotifications";
- 
+
 const App = () => {
- return (
-   <div>
-     <Navbar/>
-     <Routes>
-       <Route exact path="/" element={<FeatureBlog />} />
-       
-       <Route exact path="/test" element={<FeatureBlog />} />
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<FeatureBlog />} />
 
-       <Route path="/createBlog" element={<BlogCreate />} />
-       <Route path="/viewBlog/:id" element={<ViewBlog />} />
-       <Route path="/userBlog" element={<UserBlog />} />
-       <Route path="/notification" element={<ViewNotification />} />
+        <Route exact path="/test" element={<FeatureBlog />} />
 
-       <Route path="/createPost/:id" element={<CreatePost />} />
+        <Route path="/createBlog" element={<BlogCreate />} />
+        <Route path="/viewBlog/:id" element={<ViewBlog />} />
+        <Route path="/userBlog" element={<UserBlog />} />
+        <Route path="/notification" element={<ViewNotification />} />
 
-       <Route path="/createComment/:id" element={<CreateComment />}/>
-       <Route path='*' element={<FeatureBlog />}/>
-     </Routes>
-   </div>
- );
+        <Route path="/createPost/:id" element={<CreatePost />} />
+
+        <Route path="/createComment/:id" element={<CreateComment />} />
+        <Route path='*' element={<FeatureBlog />} />
+      </Routes>
+    </div>
+  );
 };
- 
+
 export default App;
