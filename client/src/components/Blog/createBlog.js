@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function CreateBlog() {
   const { user } = useAuth0();
   const [form, setForm] = useState({
-    user: user.email,
+    user: user.nickname,
     name: "",
     likes: 0,
   });

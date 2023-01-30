@@ -70,7 +70,7 @@ export default function Navbar() {
       <div>
         {isAuthenticated ? (
           <div>
-            {user.email.toString() + "       "}
+            {user.nickname.toString() + "       "}
             <LogoutButton />
           </div>
         ) : (

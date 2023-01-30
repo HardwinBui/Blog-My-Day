@@ -42,9 +42,10 @@ export default function BlogList() {
 
       var records = await response.json();
       if (!isLoading)
-        records = records.filter(blog => blog.user == user.email.toString());
+        records = records.filter(blog => blog.user == user.nickname.toString());
 
       setBlogs(records);
+      console.log(user.nickname + " " + user.email);
     }
 
     getBlogs();

@@ -10,7 +10,7 @@ export default function CreateComment() {
   // Comment information
   const [form, setForm] = useState({
     postID: params.id,
-    user: user.email,
+    user: user.nickname,
     content: "",
     likes: 0,
   });

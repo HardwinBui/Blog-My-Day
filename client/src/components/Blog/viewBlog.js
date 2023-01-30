@@ -35,22 +35,22 @@ export default function ViewBlog() {
         return;
       }
 
+      // Set blog data
       var blog = await responseBlog.json();
       setBlog(blog);
-
+      // Set post data
       var posts = await responsePosts.json();
-      if (!isLoading)
-        posts = posts.filter(post => post.blogID == params.id.toString());
+      posts = posts.filter(post => post.blogID == params.id.toString());
       setPosts(posts);
-
+      // Set comment data
       var comments = await responseComments.json();
       setComments(comments);
       
-
+      // Verify user
       if (!isLoading) {
         var verifyBlog = false;
         if (isAuthenticated)
-          verifyBlog = blog.user == user.email.toString();
+          verifyBlog = blog.user == user.nickname.toString();
         verifyBlog = verifyBlog && isAuthenticated;
         setUser(verifyBlog);
       }
@@ -78,7 +78,7 @@ export default function ViewBlog() {
     });
 
     const newComments = comment.filter((el) => el._id !== id);
-    setPosts(newComments);
+    setComments(newComments);
   }
 
   // Option Functions ----------------------------
@@ -141,7 +141,7 @@ export default function ViewBlog() {
             <br />
             <h6>{record.content}</h6>
             <br />
-            {deleteComment(record._id, user.email == record.user.toString())}
+            {deleteComment(record._id, user.nickname == record.user.toString())}
           </div>
         </div>
       );
