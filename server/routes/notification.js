@@ -42,7 +42,7 @@ notificationRoutes.route("/notification/add").post(function (req, response) {
 });
 
 // This section will help you update a notification by id.
-notificationRoutes.route("/update/:id").post(function (req, response) {
+notificationRoutes.route("/notification/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {

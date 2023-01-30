@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import '../../App.css';
 
-const FeatureBlog = (props) => (
+const UserBlog = (props) => (
   <div>
     <br /><br />
     <h2>{props.record.name}</h2>
@@ -14,6 +14,10 @@ const FeatureBlog = (props) => (
       <button class="block">View Blog</button>
     </Link>
     <br /><br />
+    <Link to={`/editBlog/${props.record._id}`}>
+      <button class="block">Edit Blog</button>
+    </Link>
+    <br /><br />
     <Link onClick={() => { props.deleteRecord(props.record._id); }}>
       <button class="delete">Delete Blog</button>
     </Link>
@@ -22,14 +26,12 @@ const FeatureBlog = (props) => (
   </div>
 );
 
-export default function RecordList() {
-  const [records, setRecords] = useState([]);
+export default function BlogList() {
+  const [blogs, setBlogs] = useState([]);
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-
-  // This method fetches the records from the database.
   useEffect(() => {
-    async function getRecords() {
+    async function getBlogs() {
       const response = await fetch(`http://localhost:5000/blog/`);
 
       if (!response.ok) {
@@ -42,31 +44,29 @@ export default function RecordList() {
       if (!isLoading)
         records = records.filter(blog => blog.user == user.email.toString());
 
-      setRecords(records);
+      setBlogs(records);
     }
 
-    getRecords();
+    getBlogs();
 
     return;
-  }, [records.length]);
+  }, [blogs.length]);
 
-  // This method will delete a record
-  async function deleteRecord(id) {
+  async function deleteBlog(id) {
     await fetch(`http://localhost:5000/blog/delete/${id}`, {
       method: "DELETE"
     });
 
-    const newRecords = records.filter((el) => el._id !== id);
-    setRecords(newRecords);
+    const newRecords = blogs.filter((el) => el._id !== id);
+    setBlogs(newRecords);
   }
 
-  // This method will map out the records on the table
-  function recordList() {
-    return records.map((record) => {
+  function BlogList() {
+    return blogs.map((record) => {
       return (
-        <FeatureBlog
+        <UserBlog
           record={record}
-          deleteRecord={() => deleteRecord(record._id)}
+          deleteRecord={() => deleteBlog(record._id)}
           key={record._id}
         />
       );
@@ -76,7 +76,6 @@ export default function RecordList() {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-  // This following section will display the table with the records of individuals.
   return (
     !isAuthenticated && (
       <center>
@@ -99,7 +98,7 @@ export default function RecordList() {
           </Link>
         </div>
         <div class="flex-container">
-          {recordList()}
+          {BlogList()}
         </div>
       </div>
     ));

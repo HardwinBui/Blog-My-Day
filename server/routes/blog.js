@@ -43,7 +43,7 @@ blogRoutes.route("/blog/add").post(function (req, response) {
 });
 
 // This section will help you update a blog by id.
-blogRoutes.route("/update/:id").post(function (req, response) {
+blogRoutes.route("/blog/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {

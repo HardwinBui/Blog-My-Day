@@ -1,18 +1,41 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-import React, { useEffect, useState } from "react";
 
-
-export default function CreatePost() {
-  const params = useParams();
+export default function EditPost() {
   const [form, setForm] = useState({
-    blogID: params.id,
+    blogID: "",
     title: "",
     content: "",
-    comments: [],
     likes: 0,
   });
+  const params = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchData() {
+      const id = params.id.toString();
+      const response = await fetch(`http://localhost:5000/post/${params.id.toString()}`);
+
+      if (!response.ok) {
+        const message = `An error has occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const record = await response.json();
+      if (!record) {
+        window.alert(`Record with id ${id} not found`);
+        navigate("/");
+        return;
+      }
+
+      setForm(record);
+    }
+
+    fetchData();
+
+    return;
+  }, [params.id, navigate]);
 
   function updateForm(value) {
     return setForm((prev) => {
@@ -22,32 +45,31 @@ export default function CreatePost() {
 
   async function onSubmit(e) {
     e.preventDefault();
+    const editedPerson = {
+      blogID: form.blogID,
+      title: form.title,
+      content: form.content,
+      likes: form.likes,
+    };
 
-    const newPost = { ...form };
-
-    await fetch("http://localhost:5000/post/add", {
+    await fetch(`http://localhost:5000/post/update/${params.id}`, {
       method: "POST",
+      body: JSON.stringify(editedPerson),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newPost),
-    })
-      .catch(error => {
-        window.alert(error);
-        return;
-      });
+    });
 
     setForm({ name: "" });
     navigate(-1);
   }
 
   return (
-    <div class="page-container">
-      <h3>Create a New Post</h3>
+    <div>
+      <h3>Edit Post</h3>
       <form onSubmit={onSubmit}>
-        <br />
         <div className="form-group">
-          <label htmlFor="name">Title</label>
+          <label htmlFor="name">Title: </label>
           <input
             type="text"
             className="form-control"
@@ -56,9 +78,9 @@ export default function CreatePost() {
             onChange={(e) => updateForm({ title: e.target.value })}
           />
         </div>
-        <br />
+
         <div className="form-group">
-          <label htmlFor="name">Description</label>
+          <label htmlFor="name">Content: </label>
           <input
             type="text"
             className="form-control"
@@ -67,11 +89,14 @@ export default function CreatePost() {
             onChange={(e) => updateForm({ content: e.target.value })}
           />
         </div>
+
+
         <br />
+
         <div className="form-group">
           <input
             type="submit"
-            value="Create Post"
+            value="Update Record"
             className="btn btn-primary"
           />
         </div>

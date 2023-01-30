@@ -52,7 +52,7 @@ commentRoutes.route("/comment/add").post(function (req, response) {
 });
 
 // This section will help you update a comment by id.
-commentRoutes.route("/update/:id").post(function (req, response) {
+commentRoutes.route("/comment/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {

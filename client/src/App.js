@@ -12,12 +12,14 @@ import LogoutButton from './components/Auth0/logoutButton';
 import UserProfile from './components/Auth0/userProfile';
 
 // Main components
-import BlogCreate from "./components/Blog/blogCreate";
+import CreateBlog from "./components/Blog/createBlog";
 import FeatureBlog from "./components/Blog/featureBlog";
 import ViewBlog from "./components/Blog/viewBlog";
 import UserBlog from "./components/Blog/userBlog";
+import EditBlog from "./components/Blog/editBlog";
 
 import CreatePost from "./components/Post/createPost";
+import EditPost from "./components/Post/editPost";
 
 import CreateComment from "./components/Comment/createComment";
 
@@ -29,15 +31,15 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<FeatureBlog />} />
-
-        <Route exact path="/test" element={<FeatureBlog />} />
-
-        <Route path="/createBlog" element={<BlogCreate />} />
-        <Route path="/viewBlog/:id" element={<ViewBlog />} />
-        <Route path="/userBlog" element={<UserBlog />} />
         <Route path="/notification" element={<ViewNotification />} />
 
+        <Route path="/createBlog" element={<CreateBlog />} />
+        <Route path="/userBlog" element={<UserBlog />} />
+        <Route path="/viewBlog/:id" element={<ViewBlog />} />
+        <Route path="/editBlog/:id" element={<EditBlog />} />
+
         <Route path="/createPost/:id" element={<CreatePost />} />
+        <Route path="/editPost/:id" element={<EditPost />} />
 
         <Route path="/createComment/:id" element={<CreateComment />} />
         <Route path='*' element={<FeatureBlog />} />

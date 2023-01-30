@@ -16,15 +16,13 @@ const FeatureBlog = (props) => (
   </div>
 );
 
-export default function RecordList() {
-  const [records, setRecords] = useState([]);
+export default function BlogList() {
+  const [blogs, setBlogs] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
 
-  // This method fetches the records from the database.
   useEffect(() => {
-    async function getRecords() {
+    async function getBlogs() {
       const response = await fetch(`http://localhost:5000/blog/`);
-
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -35,42 +33,39 @@ export default function RecordList() {
       setSearchInput("");
 
       var records = await response.json();
-      setRecords(records);
+      setBlogs(records);
     }
 
-    getRecords();
+    getBlogs();
 
     return;
-  }, [records.length]);
+  }, [blogs.length]);
 
-  // This method will delete a record
-  async function deleteRecord(id) {
+  async function deleteBlog(id) {
     await fetch(`http://localhost:5000/${id}`, {
       method: "DELETE"
     });
 
-    const newRecords = records.filter((el) => el._id !== id);
-    setRecords(newRecords);
+    const newBlogs = blogs.filter((el) => el._id !== id);
+    setBlogs(newBlogs);
   }
 
   async function filterSearch(filter) {
     setSearchInput(filter.target.value.toLowerCase());
   }
 
-  // This method will map out the records on the table
-  function recordList() {
-    return records.filter(blog => blog.name.toLowerCase().startsWith(searchInput)).map((record) => {
+  function blogList() {
+    return blogs.filter(blog => blog.name.toLowerCase().startsWith(searchInput)).map((record) => {
       return (
         <FeatureBlog
           record={record}
-          deleteRecord={() => deleteRecord(record._id)}
+          deleteRecord={() => deleteBlog(record._id)}
           key={record._id}
         />
       );
     });
   }
 
-  // This following section will display the table with the records of individuals.
   return (
     <div class="page-container">
       <h3>Featured Blogs</h3>
@@ -82,7 +77,7 @@ export default function RecordList() {
       />
 
       <div class="flex-container">
-        {recordList()}
+        {blogList()}
       </div>
     </div>
   );

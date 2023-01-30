@@ -50,7 +50,7 @@ export default function Navbar() {
           </NavLink>
         </span>
 
-        <MDBNotification
+       {/*  <MDBNotification
           //autohide={3000} // by default = ∞ ms
           bodyClassName="p-5 font-weight-bold white-text"
           className="stylish-color-dark"
@@ -63,7 +63,7 @@ export default function Navbar() {
           text="11 mins ago"
           title="Bootstrap"
           titleClassName="elegant-color-dark white-text"
-        />
+        /> */}
 
       </div>
 

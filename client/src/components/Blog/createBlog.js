@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
 
-export default function BlogCreate() {
+export default function CreateBlog() {
   const { user } = useAuth0();
   const [form, setForm] = useState({
     user: user.email,
@@ -11,26 +11,23 @@ export default function BlogCreate() {
   });
   const navigate = useNavigate();
 
-  // These methods will update the state properties.
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
     });
   }
 
-  // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
 
-    // When a post request is sent to the create url, we'll add a new record to the database.
-    const newPerson = { ...form };
+    const newBlog = { ...form };
 
     await fetch("http://localhost:5000/blog/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPerson),
+      body: JSON.stringify(newBlog),
     })
       .catch(error => {
         window.alert(error);
@@ -42,7 +39,6 @@ export default function BlogCreate() {
     navigate("/userBlog");
   }
 
-  // This following section will display the form that takes the input from the user.
   return (
     <div class="page-container">
       <h3>Create a New Blog</h3>
