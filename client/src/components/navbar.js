@@ -34,7 +34,7 @@ export default function Navbar() {
 
         <span>
           <NavLink className="nav-link" to="/">
-            Featured Blogs
+            View Blogs
           </NavLink>
         </span>
 

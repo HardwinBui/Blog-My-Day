@@ -82,32 +82,9 @@ a:link, a:visited {
   vertical-align: middle;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: rgb(255, 255, 255);
-  padding-top: 30px;
-}
 
-.flex-container > div {
-  background-color: #f1f1f1;
-  width: 350px;
-  margin: 10px;
-  text-align: center;
-  line-height: 15px;
-  font-size: 15px;
-}
 
-.block {
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: #04AA6D;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-}
+
 
 .page-container {
   padding: 25px;
@@ -166,4 +143,64 @@ a:link, a:visited {
   line-height: 15px;
   font-size: 15px;
   padding: 20px;
+}
+
+
+
+/* Blog display */
+.option-block {
+  background-color: #e05858;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-left: 5px;
+  border: none;
+  padding: 10px;
+}
+
+.settings-flex {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(255, 255, 255);
+  padding-top: 30px;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 350px;
+  margin: 10px;
+  text-align: center;
+  line-height: 15px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+.flex-entry {
+  background-color: #f1f1f1;
+  width: 350px;
+  margin: 10px;
+  text-align: center;
+  line-height: 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  color: black;
+}
+
+
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #279cdf;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
 }
