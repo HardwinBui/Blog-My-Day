@@ -4,36 +4,39 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 // We import NavLink to utilize the react router.
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 
 // Auth0 imports
 import LoginButton from '../Auth0/loginButton';
 import LogoutButton from '../Auth0/logoutButton';
-//import UserProfile from './Auth0/userProfile';
 import { useAuth0 } from "@auth0/auth0-react";
 
 import './navbar.css';
+//import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Navbar, Nav, NavItem, NavLink, UncontrolledDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+
+import { Link } from "react-router-dom";
 
 
 // Here, we display our Navbar
-export default function Navbar() {
+export default function Navigation() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
   const [open, setOpen] = React.useState(false);
+  
+  const toggle = () => {
+    /* this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    })); */
+    console.log("test");
+  }
 
-  const handleOpen = () => {
-    setOpen(!open);
-  };
+  const onMouseEnter = () => {
+    setOpen(true)
+  }
 
-  const handleMenuOne = () => {
-    // do something
-    setOpen(false);
-  };
-
-  const handleMenuTwo = () => {
-    // do something
-    setOpen(false);
-  };
+  const onMouseLeave = () => {
+    setOpen(false)
+  }
 
   return (
 
@@ -41,7 +44,6 @@ export default function Navbar() {
 
       <div>
         <span class="title">
-
           Blog My Day
         </span>
 
@@ -54,32 +56,18 @@ export default function Navbar() {
         </span>
 
         <span>
-            <button onClick={handleOpen}>Dropdown</button>
-            {open ? (
-              <ul className="menu">
-                <li className="menu-item">
-                  <button onClick={handleMenuOne}>Menu 1</button>
-                </li>
-                <li className="menu-item">
-                  <button onClick={handleMenuTwo}>Menu 2</button>
-                </li>
-              </ul>
-            ) : null}
-        </span>
-
-        <span>
-
-
-          <select>
-
-            <option value="fruit">Fruit</option>
-
-            <option value="vegetable">Vegetable</option>
-
-            <option value="meat">Meat</option>
-
-          </select>
-
+          <Dropdown className="d-inline-block" onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={open} toggle={toggle}>
+            <DropdownToggle tag="a" className="nav-link" caret color="primary">
+              Dropdown
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem header>Header</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem tag="a" href="/" active>Featured Blogs</DropdownItem>
+              
+              <DropdownItem>Following</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </span>
 
         <span>
