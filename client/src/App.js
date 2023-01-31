@@ -4,7 +4,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // We import all the components we need in our app
-import Navbar from "./components/navbar";
+import Navbar from "./components/NavBar/navbar";
 
 // Auth0 imports
 import LoginButton from './components/Auth0/loginButton';

@@ -7,18 +7,33 @@ import "bootstrap/dist/css/bootstrap.css";
 import { NavLink } from "react-router-dom";
 
 // Auth0 imports
-import LoginButton from './Auth0/loginButton';
-import LogoutButton from './Auth0/logoutButton';
+import LoginButton from '../Auth0/loginButton';
+import LogoutButton from '../Auth0/logoutButton';
 //import UserProfile from './Auth0/userProfile';
 import { useAuth0 } from "@auth0/auth0-react";
 
-import '../App.css';
+import './navbar.css';
 
-import { MDBNotification } from "mdbreact";
 
 // Here, we display our Navbar
 export default function Navbar() {
   const { user, isAuthenticated, isLoading } = useAuth0();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
+  const handleMenuOne = () => {
+    // do something
+    setOpen(false);
+  };
+
+  const handleMenuTwo = () => {
+    // do something
+    setOpen(false);
+  };
 
   return (
 
@@ -39,6 +54,35 @@ export default function Navbar() {
         </span>
 
         <span>
+            <button onClick={handleOpen}>Dropdown</button>
+            {open ? (
+              <ul className="menu">
+                <li className="menu-item">
+                  <button onClick={handleMenuOne}>Menu 1</button>
+                </li>
+                <li className="menu-item">
+                  <button onClick={handleMenuTwo}>Menu 2</button>
+                </li>
+              </ul>
+            ) : null}
+        </span>
+
+        <span>
+
+
+          <select>
+
+            <option value="fruit">Fruit</option>
+
+            <option value="vegetable">Vegetable</option>
+
+            <option value="meat">Meat</option>
+
+          </select>
+
+        </span>
+
+        <span>
           <NavLink className="nav-link" to="/userBlog">
             My Blogs
           </NavLink>
@@ -49,21 +93,6 @@ export default function Navbar() {
             Notifications
           </NavLink>
         </span>
-
-       {/*  <MDBNotification
-          //autohide={3000} // by default = ∞ ms
-          bodyClassName="p-5 font-weight-bold white-text"
-          className="stylish-color-dark"
-          closeClassName="blue-grey-text"
-          fade
-          icon="bell"
-          iconClassName="blue-grey-text"
-          message="Hello, world! This is a toast message."
-          show
-          text="11 mins ago"
-          title="Bootstrap"
-          titleClassName="elegant-color-dark white-text"
-        /> */}
 
       </div>
 
