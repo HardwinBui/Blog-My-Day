@@ -6,7 +6,8 @@ export default function EditPost() {
     blogID: "",
     title: "",
     content: "",
-    likes: 0,
+    likes: [],
+    comments: [],
   });
   const params = useParams();
   const navigate = useNavigate();

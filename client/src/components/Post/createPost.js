@@ -9,8 +9,8 @@ export default function CreatePost() {
     blogID: params.id,
     title: "",
     content: "",
+    likes: [],
     comments: [],
-    likes: 0,
   });
   const navigate = useNavigate();
   const [blogInfo, setBlog] = useState([]);
