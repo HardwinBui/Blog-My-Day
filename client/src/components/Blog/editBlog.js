@@ -6,6 +6,8 @@ export default function EditBlog() {
     user: "",
     name: "",
     likes: 0,
+    date_created: null,
+    date_modified: null,
   });
   const params = useParams();
   const navigate = useNavigate();
@@ -48,6 +50,8 @@ export default function EditBlog() {
       user: form.user,
       name: form.name,
       likes: form.likes,
+      date_created: form.date_created,
+      date_modified: new Date(),
     };
 
     await fetch(`http://localhost:5000/blog/update/${params.id}`, {

@@ -2,12 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
 
+function Test(id) {
+  var date = new Date( parseInt( id.toString().substring(0,8), 16 ) * 1000 );
+  // date2 = ObjectId(id).getTimestamp();
+  var test2 = "asfasda";
+  return (
+    <p>
+        {test2} <br/>
+        {date.getDay()}
+    </p>
+  );
+}
+
 const FeatureBlog = (props) => (
   <div>
     <br /><br />
     <h2>{props.record.name}</h2>
     <br /><br />
-    <h5>by {props.record.user}</h5>
+    <h5><Test id = {props.record._id}/> by {props.record.user}</h5>
     <br />
     <Link to={`/viewBlog/${props.record._id}`}>
       <button class="block">View Blog</button>

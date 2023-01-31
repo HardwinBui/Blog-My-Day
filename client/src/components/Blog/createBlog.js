@@ -7,7 +7,10 @@ export default function CreateBlog() {
   const [form, setForm] = useState({
     user: user.nickname,
     name: "",
-    likes: 0,
+    likes: [],
+    posts: [],
+    date_created: null,
+    date_modified: null,
   });
   const navigate = useNavigate();
 
@@ -20,6 +23,8 @@ export default function CreateBlog() {
   async function onSubmit(e) {
     e.preventDefault();
 
+
+    form.date_created = new Date();
     const newBlog = { ...form };
 
     await fetch("http://localhost:5000/blog/add", {

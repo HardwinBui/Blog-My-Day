@@ -13,6 +13,7 @@ export default function CreatePost() {
     likes: 0,
   });
   const navigate = useNavigate();
+  const [blogInfo, setBlog] = useState([]);
 
   function updateForm(value) {
     return setForm((prev) => {
@@ -20,23 +21,67 @@ export default function CreatePost() {
     });
   }
 
+  useEffect(() => {
+    async function getBlogData() {
+      const responseBlog = await fetch(`http://localhost:5000/blog/${params.id}`);
+
+      if (!responseBlog.ok) {
+        const message = `An error occurred: ${responseBlog.statusText}`;
+        window.alert(message);
+        return;
+      };
+
+      // Set blog data
+      var blog = await responseBlog.json();
+      setBlog(blog);
+    }
+
+    getBlogData();
+
+    return;
+  }, [blogInfo.user]);
+
   async function onSubmit(e) {
     e.preventDefault();
 
     const newPost = { ...form };
 
-    await fetch("http://localhost:5000/post/add", {
+    // Add post to database
+    const postData = await fetch("http://localhost:5000/post/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newPost),
+    }).then(async response => {
+      // Try to add id to blog
+      const data = await response.json();
+
+      // check for error response
+      if (!response.ok) {
+        // get error message from body or default to response status
+        const error = (data && data.message) || response.status;
+        return Promise.reject(error);
+      }
+
+      var editedBlog = { ...blogInfo };
+      editedBlog.posts.push(data.insertedId);
+      await fetch(`http://localhost:5000/blog/update/${params.id}`, {
+        method: "POST",
+        body: JSON.stringify(editedBlog),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
     })
       .catch(error => {
         window.alert(error);
         return;
       });
 
+
+    
     setForm({ name: "" });
     navigate(-1);
   }

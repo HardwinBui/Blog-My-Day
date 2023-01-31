@@ -35,6 +35,9 @@ blogRoutes.route("/blog/add").post(function (req, response) {
     user: req.body.user,
     name: req.body.name,
     likes: req.body.likes,
+    posts: req.body.posts,
+    date_created: req.body.date_created,
+    date_modified: req.body.date_modified,
   };
   db_connect.collection("blogs").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -51,6 +54,9 @@ blogRoutes.route("/blog/update/:id").post(function (req, response) {
       user: req.body.user,
       name: req.body.name,
       likes: req.body.likes,
+      posts: req.body.posts,
+      date_created: req.body.date_created,
+      date_modified: req.body.date_modified,
     },
   };
   db_connect
