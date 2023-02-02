@@ -33,6 +33,7 @@ postRoutes.route("/post/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     blogID: req.body.blogID,
+    user: req.body.user,
     title: req.body.title,
     content: req.body.content,
     likes: req.body.likes,
@@ -51,6 +52,7 @@ postRoutes.route("/post/update/:id").post(function (req, response) {
   let newvalues = {
     $set: {
       blogID: req.body.blogID,
+      user: req.body.user,
       title: req.body.title,
       content: req.body.content,
       likes: req.body.likes,

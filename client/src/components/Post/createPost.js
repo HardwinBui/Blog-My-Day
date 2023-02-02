@@ -5,11 +5,13 @@ import React, { useEffect, useState } from "react";
 
 export default function CreatePost() {
   const params = useParams();
+  const { user } = useAuth0();
   const [form, setForm] = useState({
     blogID: params.id,
+    user: user.nickname,
     title: "",
     content: "",
-    likes: [],
+    likes: {'1': [], '-1': []},
     comments: [],
   });
   const navigate = useNavigate();

@@ -1,0 +1,28 @@
+.page-container {
+    background-color: #cfc;
+    margin: 2.5% 15%;
+}
+
+.likes-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.like-value {
+    padding: 3px 10px 0px 10px;
+}
+
+.post-title {
+    padding-left: 15px;
+}
+
+
+.info-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-spacer {
+    padding-right: 10px;
+}

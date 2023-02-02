@@ -49,7 +49,7 @@ export default function Navigation() {
 
         <span class="vl"></span>
 
-        <span>
+      {/*   <span>
           <NavLink className="nav-link" to="/">
             View Blogs
           </NavLink>
@@ -80,7 +80,7 @@ export default function Navigation() {
           <NavLink className="nav-link" to="/notification">
             Notifications
           </NavLink>
-        </span>
+        </span> */}
 
       </div>
 

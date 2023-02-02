@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router";
 export default function EditPost() {
   const [form, setForm] = useState({
     blogID: "",
+    user: "",
     title: "",
     content: "",
     likes: [],
@@ -46,12 +47,7 @@ export default function EditPost() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const editedPerson = {
-      blogID: form.blogID,
-      title: form.title,
-      content: form.content,
-      likes: form.likes,
-    };
+    const editedPerson = { ...form };
 
     await fetch(`http://localhost:5000/post/update/${params.id}`, {
       method: "POST",

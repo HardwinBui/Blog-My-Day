@@ -20,6 +20,7 @@ import EditBlog from "./components/Blog/editBlog";
 
 import CreatePost from "./components/Post/createPost";
 import EditPost from "./components/Post/editPost";
+import ViewPost from "./components/Post/viewPost";
 
 import CreateComment from "./components/Comment/createComment";
 
@@ -41,6 +42,7 @@ const App = () => {
 
         <Route path="/createPost/:id" element={<CreatePost />} />
         <Route path="/editPost/:id" element={<EditPost />} />
+        <Route path="/viewPost/:id" element={<ViewPost />} />
 
         <Route path="/createComment/:id" element={<CreateComment />} />
         <Route path='*' element={<FeatureBlog />} />
