@@ -64,7 +64,7 @@ export default function BlogList() {
     getBlogs();
 
     return;
-  }, [blogs.length]);
+  }, [blogs.length, isAuthenticated]);
 
   async function deleteBlog(id) {
     await fetch(`http://localhost:5000/blog/delete/${id}`, {

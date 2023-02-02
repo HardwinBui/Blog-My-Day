@@ -12,7 +12,7 @@ export default function CreateComment() {
     postID: params.id,
     user: user.nickname,
     content: "",
-    likes: 0,
+    likes: {'-1': [], '1': []},
   });
 
   // Notification information
@@ -87,6 +87,27 @@ export default function CreateComment() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newComment),
+    }).then(async response => {
+      // Try to add id to blog
+      const data = await response.json();
+
+      // check for error response
+      if (!response.ok) {
+        // get error message from body or default to response status
+        const error = (data && data.message) || response.status;
+        return Promise.reject(error);
+      }
+
+      var editedPost = { ...blogInfo };
+      editedPost.comments.push(data.insertedId);
+      await fetch(`http://localhost:5000/post/update/${params.id}`, {
+        method: "POST",
+        body: JSON.stringify(editedPost),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
     })
       .catch(error => {
         window.alert(error);
