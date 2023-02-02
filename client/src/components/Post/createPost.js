@@ -13,6 +13,8 @@ export default function CreatePost() {
     content: "",
     likes: {'1': [], '-1': []},
     comments: [],
+    date_created: null,
+    date_modified: null,
   });
   const navigate = useNavigate();
   const [blogInfo, setBlog] = useState([]);
@@ -46,6 +48,7 @@ export default function CreatePost() {
   async function onSubmit(e) {
     e.preventDefault();
 
+    form.date_created = new Date();
     const newPost = { ...form };
 
     // Add post to database

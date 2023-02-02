@@ -38,6 +38,8 @@ postRoutes.route("/post/add").post(function (req, response) {
     content: req.body.content,
     likes: req.body.likes,
     comments: req.body.comments,
+    date_created: req.body.date_created,
+    date_modified: req.body.date_modified,
   };
   db_connect.collection("posts").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -57,6 +59,8 @@ postRoutes.route("/post/update/:id").post(function (req, response) {
       content: req.body.content,
       likes: req.body.likes,
       comments: req.body.comments,
+      date_created: req.body.date_created,
+      date_modified: req.body.date_modified,
     },
   };
   db_connect

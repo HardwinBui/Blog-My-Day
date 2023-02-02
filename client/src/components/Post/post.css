@@ -1,5 +1,5 @@
 .page-container {
-    background-color: #cfc;
+    background-color: rgb(204, 247, 255);
     margin: 2.5% 15%;
 }
 
@@ -25,4 +25,17 @@
 
 .icon-spacer {
     padding-right: 10px;
+}
+
+.like-icon {
+    background: white;
+	color: black;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    border-radius: 25px;
+    /* background: none;
+	color: inherit; 
+    padding: 0px;*/
 }
