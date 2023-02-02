@@ -29,13 +29,29 @@
 
 .like-icon {
     background: white;
-	color: black;
-	border: none;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
     border-radius: 25px;
     /* background: none;
 	color: inherit; 
     padding: 0px;*/
+}
+
+.comment {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #c7c5c5;
+    padding-top: 0px;
+}
+
+.comment>div {
+    background-color: #f1f1f1;
+    width: 1000000px;
+    margin: 5px;
+    line-height: 15px;
+    font-size: 15px;
+    padding: 20px;
 }

@@ -14,6 +14,8 @@ export default function CreateComment() {
     user: "",
     content: "",
     likes: {'-1': [], '1': []},
+    date_created: null,
+    date_modified: null,
   });
 
   // Notification information
@@ -82,6 +84,7 @@ export default function CreateComment() {
     e.preventDefault();
 
     // Add the new comment to the database
+    form.date_created = new Date();
     const newComment = { ...form };
     await fetch("http://localhost:5000/comment/add", {
       method: "POST",

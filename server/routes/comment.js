@@ -44,6 +44,8 @@ commentRoutes.route("/comment/add").post(function (req, response) {
     user: req.body.user,
     content: req.body.content,
     likes: req.body.likes,
+    date_created: req.body.date_created,
+    date_modified: req.body.date_modified,
   };
   db_connect.collection("comments").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -61,6 +63,8 @@ commentRoutes.route("/comment/update/:id").post(function (req, response) {
       user: req.body.user,
       content: req.body.content,
       likes: req.body.likes,
+      date_created: req.body.date_created,
+      date_modified: req.body.date_modified,
     },
   };
   db_connect
