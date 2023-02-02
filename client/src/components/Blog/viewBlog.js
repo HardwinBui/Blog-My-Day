@@ -81,13 +81,9 @@ export default function ViewBlog() {
     setComments(newComments);
   }
 
-  async function toggleLike(commentID, comment) {
+  async function toggleLikeComment(commentID, comment) {
     var editedComment = { ...comment };
 
-    // check if user is in any of the 2 arrays
-    // if 1: remove from 1
-    // if -1: remove from -1 and add to 1
-    // else: add to 1
     if (editedComment.likes['1'].includes(user.nickname)) {
       editedComment.likes['1'] = editedComment.likes['1'].filter(e => e !== user.nickname);
     }
@@ -106,7 +102,7 @@ export default function ViewBlog() {
     });
   }
 
-  async function toggleDislike(commentID, comment) {
+  async function toggleDislikeComment(commentID, comment) {
     var editedComment = { ...comment };
 
     if (editedComment.likes['-1'].includes(user.nickname)) {
@@ -183,7 +179,7 @@ export default function ViewBlog() {
         <div class="comment">
 
           <div>
-            <Link onClick={() => { toggleLike(record._id, record); }}>
+            <Link onClick={() => { toggleLikeComment(record._id, record); }}>
               <button class="delete">
                 {!record.likes['1'].includes(user.nickname) &&
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
@@ -200,7 +196,7 @@ export default function ViewBlog() {
 
             <p>{record.likes['1'].length - record.likes['-1'].length}</p>
 
-            <Link onClick={() => { toggleDislike(record._id, record); }}>
+            <Link onClick={() => { toggleDislikeComment(record._id, record); }}>
               <button class="delete">
                 {!record.likes['-1'].includes(user.nickname) &&
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
