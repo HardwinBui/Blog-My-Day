@@ -55,3 +55,44 @@
     font-size: 15px;
     padding: 20px;
 }
+
+.toprow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-icon {
+    background: rgb(226, 113, 113);
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.delete-icon-post {
+    background: rgb(226, 113, 113);
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px 13px;
+}
+
+.edit-icon {
+    background: rgb(113, 162, 226);
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px 13px;
+    margin-right: 5px;
+}
+
+

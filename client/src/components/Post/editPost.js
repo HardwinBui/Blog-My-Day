@@ -9,6 +9,8 @@ export default function EditPost() {
     content: "",
     likes: [],
     comments: [],
+    date_created: null,
+    date_modified: null,
   });
   const params = useParams();
   const navigate = useNavigate();
@@ -47,7 +49,9 @@ export default function EditPost() {
 
   async function onSubmit(e) {
     e.preventDefault();
+    form.date_modified = new Date();
     const editedPerson = { ...form };
+    
 
     await fetch(`http://localhost:5000/post/update/${params.id}`, {
       method: "POST",
