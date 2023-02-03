@@ -51,7 +51,7 @@ const UserBlog = (props) => (
   </Link>
 );
 
-export default function BlogList() {
+export default function UserBlogs() {
   const [blogs, setBlogs] = useState([]);
   const { user, isAuthenticated, isLoading } = useAuth0();
 

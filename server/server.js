@@ -9,6 +9,7 @@ app.use(require("./routes/blog"));
 app.use(require("./routes/post"));
 app.use(require("./routes/comment"));
 app.use(require("./routes/notification"));
+app.use(require("./routes/user"));
 // get driver connection
 const dbo = require("./db/conn");
 

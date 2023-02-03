@@ -16,6 +16,7 @@ import './navbar.css';
 import { Navbar, Nav, NavItem, NavLink, UncontrolledDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import { Link } from "react-router-dom";
+import CreateUser from "../Auth0/createUser";
 
 
 // Here, we display our Navbar
@@ -41,7 +42,7 @@ export default function Navigation() {
   return (
 
     <div class="nav">
-
+      <CreateUser/>
       <div>
         <span class="title">
           Blog My Day

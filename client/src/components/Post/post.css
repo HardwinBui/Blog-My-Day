@@ -40,28 +40,6 @@
     padding: 0px;*/
 }
 
-.comment {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #c7c5c5;
-    padding-top: 0px;
-}
-
-.comment>div {
-    background-color: #f1f1f1;
-    color: black;
-    /* width: 1000000px; */
-    box-sizing: border-box;
-    margin: 5px;
-    line-height: 15px;
-    font-size: 15px;
-    padding: 20px;
-}
-
-.toprow {
-    display: flex;
-    justify-content: space-between;
-}
 
 .delete-icon {
     background: rgb(226, 113, 113);
@@ -87,6 +65,18 @@
 
 .edit-icon {
     background: rgb(113, 162, 226);
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px 13px;
+    margin-right: 5px;
+}
+
+.rise-icon {
+    background: rgb(113, 226, 128);
     color: black;
     border: none;
     font: inherit;

@@ -31,12 +31,12 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
-        {/* <Route exact path="/" element={<FeatureBlog />} /> */}
-        <Route exact path="/" element={<UserBlog />} />
+        <Route exact path="/" element={<FeatureBlog />} />
+        {/* <Route exact path="/" element={<UserBlog />} /> */}
         <Route path="/notification" element={<ViewNotification />} />
 
         <Route path="/createBlog" element={<CreateBlog />} />
-        <Route path="/userBlog" element={<UserBlog />} />
+        <Route path="/userBlog/:id" element={<UserBlog />} />
         <Route path="/viewBlog/:id" element={<ViewBlog />} />
         <Route path="/editBlog/:id" element={<EditBlog />} />
 
