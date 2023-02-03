@@ -5,7 +5,8 @@ export default function EditBlog() {
   const [form, setForm] = useState({
     user: "",
     name: "",
-    likes: 0,
+    likes: [],
+    posts: [],
     date_created: null,
     date_modified: null,
   });
@@ -50,6 +51,7 @@ export default function EditBlog() {
       user: form.user,
       name: form.name,
       likes: form.likes,
+      posts: form.posts,
       date_created: form.date_created,
       date_modified: new Date(),
     };

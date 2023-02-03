@@ -49,7 +49,9 @@
 
 .comment>div {
     background-color: #f1f1f1;
-    width: 1000000px;
+    color: black;
+    /* width: 1000000px; */
+    box-sizing: border-box;
     margin: 5px;
     line-height: 15px;
     font-size: 15px;
@@ -94,5 +96,3 @@
     padding: 10px 13px;
     margin-right: 5px;
 }
-
-

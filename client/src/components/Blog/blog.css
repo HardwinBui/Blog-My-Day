@@ -1,0 +1,61 @@
+.icon-spacer2 {
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.bloginfo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.create-blog {
+    margin-left: 10px;
+
+    background: rgb(113, 162, 226);
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    padding-top: 0px;
+    justify-content: center;
+}
+
+.flex-container>div {
+    background-color: #694a4a;
+    width: 350px;
+    margin: 10px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.flex-entry {
+    background-color: #f1f1f1;
+    width: 350px;
+    margin: 10px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 15px;
+    border-radius: 8px;
+    color: black;
+    justify-content: center;
+}
+
+.blogcard-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin: 0px 20%;
+}
