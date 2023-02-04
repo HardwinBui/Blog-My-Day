@@ -7,6 +7,7 @@ export default function EditBlog() {
     name: "",
     likes: [],
     posts: [],
+    followers: [],
     date_created: null,
     date_modified: null,
   });
@@ -52,6 +53,7 @@ export default function EditBlog() {
       name: form.name,
       likes: form.likes,
       posts: form.posts,
+      followers: form.followers,
       date_created: form.date_created,
       date_modified: new Date(),
     };

@@ -9,6 +9,7 @@ export default function CreateBlog() {
     name: "",
     likes: [],
     posts: [],
+    followers: [],
     date_created: null,
     date_modified: null,
   });

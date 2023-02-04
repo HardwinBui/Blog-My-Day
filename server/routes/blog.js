@@ -36,6 +36,7 @@ blogRoutes.route("/blog/add").post(function (req, response) {
     name: req.body.name,
     likes: req.body.likes,
     posts: req.body.posts,
+    followers: req.body.followers,
     date_created: req.body.date_created,
     date_modified: req.body.date_modified,
   };
@@ -55,6 +56,7 @@ blogRoutes.route("/blog/update/:id").post(function (req, response) {
       name: req.body.name,
       likes: req.body.likes,
       posts: req.body.posts,
+      followers: req.body.followers,
       date_created: req.body.date_created,
       date_modified: req.body.date_modified,
     },

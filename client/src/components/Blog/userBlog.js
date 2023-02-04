@@ -24,11 +24,11 @@ const UserBlog = (props) => (
           </svg>
         </div>
         <div><h6>
-          {props.record.posts !== undefined && props.record.posts.length + ' '}
-          {props.record.posts === undefined && '0 '}
+          {props.record.followers !== undefined && props.record.followers.length + ' '}
+          {props.record.followers === undefined && '0 '}
           follower
-          {props.record.posts !== undefined && props.record.posts.length !== 1 && 's'}
-          {props.record.posts === undefined && 's'}
+          {props.record.followers !== undefined && props.record.followers.length !== 1 && 's'}
+          {props.record.followers === undefined && 's'}
         </h6></div>
 
         <div class="icon-spacer2">

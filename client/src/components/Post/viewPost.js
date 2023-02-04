@@ -48,7 +48,7 @@ export default function ViewPost() {
     getPostData();
 
     return;
-  }, [postInfo.title, isAuthenticated]);
+  }, [postInfo.title, isAuthenticated, date, time]);
 
   // API Functions -------------------------
 
