@@ -41,7 +41,12 @@ export default function Navigation() {
   }
 
   const FollowedBlogs = () => {
-    navigate("/");
+    navigate("/followedBlog");
+    onMouseLeave();
+  }
+
+  const RecentPosts = () => {
+    navigate("/recentPosts");
     onMouseLeave();
   }
 
@@ -62,15 +67,23 @@ export default function Navigation() {
               View Blogs
             </DropdownToggle>
             <DropdownMenu>
+              
+
               <DropdownItem>
-                <div onClick={FeaturedBlogs}>
-                  Featured Blogs
+                <div onClick={RecentPosts}>
+                  Recent Posts
                 </div>
               </DropdownItem>
 
               <DropdownItem>
                 <div onClick={FollowedBlogs}>
                   Followed Blogs
+                </div>
+              </DropdownItem>
+
+              <DropdownItem>
+                <div onClick={FeaturedBlogs}>
+                  Featured Blogs
                 </div>
               </DropdownItem>
 

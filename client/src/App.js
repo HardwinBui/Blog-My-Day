@@ -17,10 +17,12 @@ import FeatureBlog from "./components/Blog/featureBlog";
 import ViewBlog from "./components/Blog/viewBlog";
 import UserBlog from "./components/Blog/userBlog";
 import EditBlog from "./components/Blog/editBlog";
+import FollowedBlog from "./components/Blog/followBlog";
 
 import CreatePost from "./components/Post/createPost";
 import EditPost from "./components/Post/editPost";
 import ViewPost from "./components/Post/viewPost";
+import RecentPost from "./components/Post/recentPosts";
 
 import CreateComment from "./components/Comment/createComment";
 
@@ -39,10 +41,12 @@ const App = () => {
         <Route path="/userBlog/:id" element={<UserBlog />} />
         <Route path="/viewBlog/:id" element={<ViewBlog />} />
         <Route path="/editBlog/:id" element={<EditBlog />} />
+        <Route path="/followedBlog" element={<FollowedBlog />} />
 
         <Route path="/createPost/:id" element={<CreatePost />} />
         <Route path="/editPost/:id" element={<EditPost />} />
         <Route path="/viewPost/:id" element={<ViewPost />} />
+        <Route path="/recentPosts" element={<RecentPost />} />
 
         <Route path="/createComment/:id" element={<CreateComment />} />
         <Route path='*' element={<FeatureBlog />} />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const FeatureBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -53,6 +54,7 @@ const FeatureBlog = (props) => (
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   function sortByFollowers(a, b) {
     if(a.followers.length === b.followers.length)
@@ -72,18 +74,19 @@ export default function BlogList() {
 
       setSearchInput("");
 
-      var records = await response.json();
-      setBlogs(records.sort(sortByFollowers).reverse());
+      var records = await response.json().then(async response => {
+        if (isAuthenticated) {
+          var blogs = response.sort(sortByFollowers).reverse();
+          setBlogs(blogs.filter(blog => blog.followers.includes(user.nickname)));
+        }
+        else setBlogs(response.sort(sortByFollowers).reverse());
+      });
     }
 
     getBlogs();
 
     return;
-  }, [blogs.length]);
-
-  async function filterSearch(filter) {
-    setSearchInput(filter.target.value.toLowerCase());
-  }
+  }, [blogs.length, isAuthenticated]);
 
   function blogList() {
     return blogs.filter(blog => blog.name.toLowerCase().startsWith(searchInput)).map((record) => {
@@ -98,15 +101,10 @@ export default function BlogList() {
 
   return (
     <div class="page-container">
-      <h3>Featured Blogs</h3>
+      <h3>Followed Blogs</h3>
+      <h6><em>Check on any of the blogs you're following!</em></h6>
 
-      <input
-        type="search"
-        placeholder="Search blog here"
-        onChange={filterSearch}
-      />
-
-      <br/><br/>
+      <br/>
       <div class="flex-container">
         {blogList()}
       </div>
