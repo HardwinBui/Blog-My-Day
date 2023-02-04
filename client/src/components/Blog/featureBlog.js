@@ -6,11 +6,11 @@ const FeatureBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
     <div class="flex-entry">
 
-      <br />
+      <br /><br />
       <h2>{props.record.name}</h2>
       <br />
       <h5>by {props.record.user}</h5>
-      <br />
+
       <h6><em>created on {new Date(props.record.date_created).toLocaleDateString()}</em></h6>
 
       <br />
