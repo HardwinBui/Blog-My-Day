@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
 import { useAuth0 } from "@auth0/auth0-react";
+import LoginWarning from "../Auth0/loginWarning";
 
 const FeatureBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -100,6 +101,11 @@ export default function BlogList() {
   }
 
   return (
+    !isAuthenticated && (<LoginWarning/>)
+
+    || 
+
+    isAuthenticated && (
     <div class="page-container">
       <h3>Followed Blogs</h3>
       <h6><em>Check on any of the blogs you're following!</em></h6>
@@ -109,5 +115,5 @@ export default function BlogList() {
         {blogList()}
       </div>
     </div>
-  );
+  ));
 }

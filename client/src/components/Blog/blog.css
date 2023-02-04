@@ -95,3 +95,27 @@
 .center-post {
     text-align: left;
 }
+
+.form-field {
+    position: relative;
+    display: inline-block;
+}
+
+.search {
+    padding: 5px 9px;
+    padding-bottom: 7px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin: 3px;
+    border: none;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toprow {
+    display: flex;
+    justify-content: space-between;
+}

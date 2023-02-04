@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import './blog.css';
 import { useParams, useNavigate } from "react-router";
+import LoginWarning from "../Auth0/loginWarning";
 
 const UserBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -121,14 +122,7 @@ export default function UserBlogs() {
     return <div>Loading ...</div>;
   }
   return (
-    !isAuthenticated && (
-      <center>
-        <h1>
-          <br /><br /><br /><br /><br />
-          Please log in to use this feature!
-        </h1>
-      </center>
-    )
+    !isAuthenticated && (<LoginWarning/>)
 
     ||
 

@@ -10,6 +10,7 @@ import Navbar from "./components/NavBar/navbar";
 import LoginButton from './components/Auth0/loginButton';
 import LogoutButton from './components/Auth0/logoutButton';
 import UserProfile from './components/Auth0/userProfile';
+import LoginWarning from "./components/Auth0/loginWarning";
 
 // Main components
 import CreateBlog from "./components/Blog/createBlog";
@@ -49,6 +50,8 @@ const App = () => {
         <Route path="/recentPosts" element={<RecentPost />} />
 
         <Route path="/createComment/:id" element={<CreateComment />} />
+
+        <Route path="/login" element={<LoginWarning/>} />
         <Route path='*' element={<FeatureBlog />} />
       </Routes>
     </div>

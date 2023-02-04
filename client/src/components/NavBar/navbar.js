@@ -67,17 +67,11 @@ export default function Navigation() {
               View Blogs
             </DropdownToggle>
             <DropdownMenu>
-              
+
 
               <DropdownItem>
                 <div onClick={RecentPosts}>
                   Recent Posts
-                </div>
-              </DropdownItem>
-
-              <DropdownItem>
-                <div onClick={FollowedBlogs}>
-                  Followed Blogs
                 </div>
               </DropdownItem>
 
@@ -87,17 +81,31 @@ export default function Navigation() {
                 </div>
               </DropdownItem>
 
+              <DropdownItem>
+                <div onClick={FollowedBlogs}>
+                  Followed Blogs
+                </div>
+              </DropdownItem>
+
             </DropdownMenu>
           </Dropdown>
         </span>
 
-        {isAuthenticated &&
-          <span class="navopt">
+
+        <span class="navopt">
+          {isAuthenticated &&
             <Link to={`/userBlog/${user.nickname}`}>
               My Blogs
             </Link>
-          </span>
-        }
+          }
+
+          {!isAuthenticated &&
+            <Link to={`/userBlog/null`}>
+              My Blogs
+            </Link>
+          }
+        </span>
+
 
         <span class="navopt">
           <Link to="/notification">

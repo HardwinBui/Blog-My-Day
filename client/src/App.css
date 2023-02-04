@@ -179,3 +179,8 @@ a:link, a:visited {
   text-align: center;
   border-radius: 4px;
 }
+
+.form-field {
+  position: relative;
+  display: inline-block;
+}
