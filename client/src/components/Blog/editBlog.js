@@ -71,9 +71,10 @@ export default function EditBlog() {
   }
 
   return (
-    <div>
+    <div class="page-container">
       <h3>Edit Blog</h3>
       <form onSubmit={onSubmit}>
+        <br />
         <div className="form-group">
           <label htmlFor="name">Name: </label>
           <input
@@ -90,7 +91,7 @@ export default function EditBlog() {
         <div className="form-group">
           <input
             type="submit"
-            value="Update Record"
+            value="Update Blog"
             className="btn btn-primary"
           />
         </div>

@@ -51,7 +51,7 @@ export default function EditPost() {
     e.preventDefault();
     form.date_modified = new Date();
     const editedPerson = { ...form };
-    
+
 
     await fetch(`http://localhost:5000/post/update/${params.id}`, {
       method: "POST",
@@ -66,9 +66,10 @@ export default function EditPost() {
   }
 
   return (
-    <div>
+    <div class="page-container">
       <h3>Edit Post</h3>
       <form onSubmit={onSubmit}>
+        <br />
         <div className="form-group">
           <label htmlFor="name">Title: </label>
           <input
@@ -79,7 +80,7 @@ export default function EditPost() {
             onChange={(e) => updateForm({ title: e.target.value })}
           />
         </div>
-
+        <br />
         <div className="form-group">
           <label htmlFor="name">Content: </label>
           <input
