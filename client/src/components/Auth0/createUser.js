@@ -8,6 +8,7 @@ const CreateUser = () => {
   const [userInfo, setUser] = useState({
     user: "",
     blogs: [],
+    followed_blogs: [],
     date_created: new Date(),
     date_modified: null,
   });

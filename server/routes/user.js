@@ -34,6 +34,7 @@ userRoutes.route("/user/add").post(function (req, response) {
   let myobj = {
     user: req.body.user,
     blogs: req.body.blogs,
+    followed_blogs: req.body.followed_blogs,
     date_created: req.body.date_created,
     date_modified: req.body.date_modified,
   };
@@ -51,6 +52,7 @@ userRoutes.route("/user/update/:id").post(function (req, response) {
     $set: {
       user: req.body.user,
       blogs: req.body.blogs,
+      followed_blogs: req.body.followed_blogs,
       date_created: req.body.date_created,
       date_modified: req.body.date_modified,
     },

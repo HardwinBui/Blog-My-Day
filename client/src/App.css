@@ -37,19 +37,7 @@
   }
 }
 
-.nav {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: #0D6EFD;
-  color: #fff;
-  display: flex;
-  padding: 0 16px;
-  align-items: center;
-  height: 56px;
-  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
-  justify-content: space-between;
-}
+
 
 span{
   padding: 0rem;
@@ -70,11 +58,6 @@ a:link, a:visited {
   display: inline-block;
 }
 
-.vl {
-  border-left: 3px solid rgb(255, 255, 255);
-  height: 15px;
-  padding-left: 10px;
-}
 
 .center-text {
   text-align: center;

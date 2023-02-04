@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import './blog.css';
+import { useParams, useNavigate } from "react-router";
 
 const UserBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -54,10 +55,23 @@ const UserBlog = (props) => (
 export default function UserBlogs() {
   const [blogs, setBlogs] = useState([]);
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [userInfo, setUser] = useState([]);
+  const params = useParams();
+  const [date, setDate] = useState([]);
+  const [time, setTime] = useState([]);
 
   useEffect(() => {
     async function getBlogs() {
       const response = await fetch(`http://localhost:5000/blog/`);
+      const responseUser = await fetch(`http://localhost:5000/user/`).then((async response => {
+        var userList = await response.json();
+        for(var i = 0; i < userList.length; i++) {
+          if(userList[i].user === params.id) {
+            setUser(userList[i]);
+            break;
+          }
+        }
+      }));
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -66,16 +80,21 @@ export default function UserBlogs() {
       }
 
       var records = await response.json();
-      if (!isLoading)
-        records = records.filter(blog => blog.user == user.nickname.toString());
-
+      if (!isLoading && userInfo.user !== undefined) {
+        records = records.filter(blog => blog.user === userInfo.user);
+      }
       setBlogs(records);
+
+      var date = new Date(userInfo.date_created);
+      var time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+      setDate(date.toLocaleDateString());
+      setTime(time);
     }
 
     getBlogs();
 
     return;
-  }, [blogs.length, isAuthenticated]);
+  }, [blogs.length, isAuthenticated, userInfo.length]);
 
   async function deleteBlog(id) {
     await fetch(`http://localhost:5000/blog/delete/${id}`, {
@@ -116,8 +135,8 @@ export default function UserBlogs() {
     isAuthenticated && (
       <div class="page-container">
         <div>
-          <h3>Insert Uesr Name Here</h3>
-          <h5><em>joined since 12/12/1230</em></h5>
+          <h3>{userInfo.user}</h3>
+          <h5><em>joined since {date} at {time}</em></h5>
           <br />
 
           <div class="bloginfo-container">

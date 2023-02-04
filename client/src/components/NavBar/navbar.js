@@ -12,24 +12,20 @@ import LogoutButton from '../Auth0/logoutButton';
 import { useAuth0 } from "@auth0/auth0-react";
 
 import './navbar.css';
-//import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { Navbar, Nav, NavItem, NavLink, UncontrolledDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import { Link } from "react-router-dom";
 import CreateUser from "../Auth0/createUser";
+import { useNavigate } from "react-router";
 
 
 // Here, we display our Navbar
 export default function Navigation() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [open, setOpen] = React.useState(false);
-  
-  const toggle = () => {
-    /* this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    })); */
-    console.log("test");
-  }
+  const navigate = useNavigate();
+
+  const toggle = () => { }
 
   const onMouseEnter = () => {
     setOpen(true)
@@ -39,10 +35,20 @@ export default function Navigation() {
     setOpen(false)
   }
 
+  const FeaturedBlogs = () => {
+    navigate("/");
+    onMouseLeave();
+  }
+
+  const FollowedBlogs = () => {
+    navigate("/");
+    onMouseLeave();
+  }
+
   return (
 
     <div class="nav">
-      <CreateUser/>
+      <CreateUser />
       <div>
         <span class="title">
           Blog My Day
@@ -50,38 +56,41 @@ export default function Navigation() {
 
         <span class="vl"></span>
 
-      {/*   <span>
-          <NavLink className="nav-link" to="/">
-            View Blogs
-          </NavLink>
-        </span>
-
-        <span>
+        <span class="dropdown">
           <Dropdown className="d-inline-block" onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={open} toggle={toggle}>
-            <DropdownToggle tag="a" className="nav-link" caret color="primary">
-              Dropdown
+            <DropdownToggle tag="div" caret color="primary">
+              View Blogs
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem tag="a" href="/" active>Featured Blogs</DropdownItem>
-              
-              <DropdownItem>Following</DropdownItem>
+              <DropdownItem>
+                <div onClick={FeaturedBlogs}>
+                  Featured Blogs
+                </div>
+              </DropdownItem>
+
+              <DropdownItem>
+                <div onClick={FollowedBlogs}>
+                  Followed Blogs
+                </div>
+              </DropdownItem>
+
             </DropdownMenu>
           </Dropdown>
         </span>
 
-        <span>
-          <NavLink className="nav-link" to="/userBlog">
-            My Blogs
-          </NavLink>
-        </span>
+        {isAuthenticated &&
+          <span class="navopt">
+            <Link to={`/userBlog/${user.nickname}`}>
+              My Blogs
+            </Link>
+          </span>
+        }
 
-        <span>
-          <NavLink className="nav-link" to="/notification">
+        <span class="navopt">
+          <Link to="/notification">
             Notifications
-          </NavLink>
-        </span> */}
+          </Link>
+        </span>
 
       </div>
 
