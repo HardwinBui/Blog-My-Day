@@ -13,6 +13,7 @@
     margin-left: 10px;
 
     background: #0d6efd ;
+    background: #712CF9;
     color: white;
     border: none;
     font: inherit;
@@ -120,3 +121,4 @@
     display: flex;
     justify-content: space-between;
 }
+

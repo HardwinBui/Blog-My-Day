@@ -41,7 +41,9 @@
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #0D6EFD;
+  //background-color: #0D6EFD;
+  //background-color: #7952B3;
+  background-color: #712CF9;
   color: #fff;
   display: flex;
   padding: 0 16px;
