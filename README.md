@@ -13,8 +13,11 @@ Features
 ----
 __Home Page__ 
 
-![featured blogs](https://user-images.githubusercontent.com/27057402/214251331-f6e269d3-a8df-42c4-a2f9-a2046bf00d81.PNG)
-When users enter the page they will be presented with all of the blogs made by existing users. From here they can either look at indiviual blogs or sign up to make some of their own.
+![featured](https://user-images.githubusercontent.com/27057402/216795792-60403b65-f515-4c19-b56d-45315acf2d02.PNG)
+When users enter the page they will be presented with all of the blogs made by existing users. These blogs are sorted by popularity measured by their followers and psots. From here, users can either look at indiviual blogs or sign up to make some of their own.
+
+![search filter](https://user-images.githubusercontent.com/27057402/216795824-362ea935-08be-47dd-afd7-bc969324b252.PNG)
+Additionally, users can filter and search specifics blogs by typing part of their title in the searchbar.
 
 __Login Page__ 
 
