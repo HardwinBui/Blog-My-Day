@@ -1,0 +1,90 @@
+.page-container {
+    //background-color: rgb(204, 247, 255);
+    background-color: rgb(255, 255, 255);
+    margin: 2.5% 15%;
+    border: 0px solid #c7c5c5;
+}
+
+.likes-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.like-value {
+    padding: 3px 10px 0px 10px;
+}
+
+.post-title {
+    padding-left: 15px;
+}
+
+
+.info-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-spacer {
+    padding-right: 10px;
+}
+
+.like-icon {
+    background: white;
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 25px;
+    /* background: none;
+	color: inherit; 
+    padding: 0px;*/
+}
+
+
+.delete-icon {
+    background: #dc3545 ;
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.delete-icon-post {
+    background: #dc3545 ;
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px 13px;
+}
+
+.edit-icon {
+    background: #0d6efd ;
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px 13px;
+    margin-right: 5px;
+}
+
+.rise-icon {
+    background: #0d6efd   ;
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 5px;
+    padding: 10px 13px;
+    margin-right: 5px;
+}

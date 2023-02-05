@@ -1,0 +1,95 @@
+.dropdown {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+
+  list-style-type: none;
+  margin: 5px 350px;
+  padding: 0;
+
+  border: 1px solid grey;
+  width: 150px;
+}
+
+.menu>li {
+  margin: 0;
+
+  background-color: white;
+}
+
+.menu>li:hover {
+  background-color: lightgray;
+}
+
+.menu>li>button {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #0D6EFD;
+  color: #fff;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  height: 56px;
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.nav>div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.test {
+  color: black;
+}
+
+.vl {
+  border-left: 3px solid rgb(255, 255, 255);
+  height: 15px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.dropdown {
+  padding-right: 15px;
+}
+
+.navopt {
+  padding-right: 25px;
+}
+
+.notif-dropdown {
+  width: 300px;
+  display: inline-table;
+  word-wrap: normal;
+}
+
+.username {
+  padding-top: 10px;
+  padding-right: 15px;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

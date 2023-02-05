@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginWarning from "../Auth0/loginWarning";
 
 const FeatureBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -10,7 +12,6 @@ const FeatureBlog = (props) => (
       <h2>{props.record.name}</h2>
       <br />
       <h5>by {props.record.user}</h5>
-
       <h6><em>created on {new Date(props.record.date_created).toLocaleDateString()}</em></h6>
 
       <br />
@@ -53,7 +54,7 @@ const FeatureBlog = (props) => (
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
-  const [filter, setFilter] = useState([]);
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   function sortByFollowers(a, b) {
     if (a.followers.length === b.followers.length)
@@ -73,23 +74,18 @@ export default function BlogList() {
 
       setSearchInput("");
 
-      var records = await response.json();
-      setBlogs(records.sort(sortByFollowers).reverse());
+      var records = await response.json().then(async response => {
+        if (isAuthenticated) {
+          var blogs = response.sort(sortByFollowers).reverse();
+          setBlogs(blogs.filter(blog => blog.followers.includes(user.nickname)));
+        }
+      });
     }
 
     getBlogs();
 
     return;
-  }, [blogs.length]);
-
-  async function filterSearch(filter) {
-    setFilter(filter);
-    //setSearchInput(filter.target.value.toLowerCase());
-  }
-
-  const UpdateFilter = () => {
-    setSearchInput(filter.target.value.toLowerCase());
-  }
+  }, [blogs.length, isAuthenticated]);
 
   function blogList() {
     return blogs.filter(blog => blog.name.toLowerCase().startsWith(searchInput)).map((record) => {
@@ -102,32 +98,25 @@ export default function BlogList() {
     });
   }
 
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
   return (
-    <div class="page-container">
-      <div class="search-container">
-        <div><h3>Featured Blogs</h3></div>
+    !isAuthenticated && (<LoginWarning />)
 
-        <div class="form-field">
-          <input
-            type="search"
-            placeholder="Search blog here"
-            onChange={filterSearch}
-          />
-          <button class="search" onClick={UpdateFilter}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
-          </button>
+    ||
+
+    isAuthenticated && (
+      <div class="page-container">
+        <h3>Followed Blogs</h3>
+        <h6><em>Check on any of the blogs you're following!</em></h6>
+
+        <br />
+        <hr />
+        <br />
+        <div class="flex-container">
+          {blogList()}
         </div>
       </div>
-      <h6><em>Click on any blog you find interesting and explore!</em></h6>
-
-      <br />
-      <hr />
-      <br />
-      <div class="flex-container">
-        {blogList()}
-      </div>
-    </div>
-  );
+    ));
 }

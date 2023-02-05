@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useParams, useNavigate } from "react-router";
 import React, { useEffect, useState } from "react";
+import './comment.css';
 
 export default function CreateComment() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -10,15 +11,18 @@ export default function CreateComment() {
   // Comment information
   const [form, setForm] = useState({
     postID: params.id,
-    user: user.nickname,
+    user: "",
     content: "",
     likes: {'-1': [], '1': []},
+    date_created: null,
+    date_modified: null,
   });
 
   // Notification information
   const [notif, setNotif] = useState({
     user: params.id,
     detail: "",
+    date_created: null,
   });
 
   const [verify, setUser] = useState([]);
@@ -45,8 +49,7 @@ export default function CreateComment() {
         setBlog(blog);
         updateNotif({ user: blogInfo.user });
         if (isAuthenticated) {
-          var msg = user.email.toString() + " made a comment to your post, " + postInfo.title;
-          msg += ", in your blog, " + blogInfo.name + "!";
+          var msg = user.nickname + " commented on your post, " + postInfo.title;
           updateNotif({ detail: msg });
         }
       }
@@ -55,6 +58,7 @@ export default function CreateComment() {
       if (!isLoading) {
         if (isAuthenticated)
           verifyBlog = blogInfo.user == user.email.toString();
+        updateForm({user: user.nickname})
         var verifyBlog = verifyBlog && isAuthenticated;
         setUser(verifyBlog);
       }
@@ -80,6 +84,7 @@ export default function CreateComment() {
     e.preventDefault();
 
     // Add the new comment to the database
+    form.date_created = new Date();
     const newComment = { ...form };
     await fetch("https://blogmydaybackend.onrender.com/comment/add", {
       method: "POST",
@@ -98,7 +103,7 @@ export default function CreateComment() {
         return Promise.reject(error);
       }
 
-      var editedPost = { ...blogInfo };
+      var editedPost = { ...postInfo };
       editedPost.comments.push(data.insertedId);
       await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
         method: "POST",
@@ -116,6 +121,7 @@ export default function CreateComment() {
 
 
     // Create a notification
+    notif.date_created = new Date();
     const newNotif = { ...notif };
     if (!verify) {
       await fetch("https://blogmydaybackend.onrender.com/notification/add", {
@@ -132,18 +138,17 @@ export default function CreateComment() {
     }
 
     setForm({ name: "" });
-    navigate(-1);
+    navigate(0);
   }
 
 
   return (
-    <div class="page-container">
-      <h3>Add a Comment</h3>
+    <div >
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
-          <label htmlFor="name">Comment</label>
-          <input
+          <textarea 
+            placeholder="What are your thoughts?"
             type="text"
             className="form-control"
             id="name"
@@ -151,11 +156,10 @@ export default function CreateComment() {
             onChange={(e) => updateForm({ content: e.target.value })}
           />
         </div>
-        <br />
-        <div className="form-group">
+        <div className="comment-button" align="right">
           <input
             type="submit"
-            value="Add a Comment"
+            value="Write a Comment"
             className="btn btn-primary"
           />
         </div>
