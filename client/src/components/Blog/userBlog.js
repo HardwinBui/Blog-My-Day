@@ -62,8 +62,8 @@ export default function UserBlogs() {
 
   useEffect(() => {
     async function getBlogs() {
-      const response = await fetch(`http://localhost:5000/blog/`);
-      const responseUser = await fetch(`http://localhost:5000/user/`).then((async response => {
+      const response = await fetch(`https://blogmydaybackend.onrender.com/blog/`);
+      const responseUser = await fetch(`https://blogmydaybackend.onrender.com/user/`).then((async response => {
         var userList = await response.json();
         for (var i = 0; i < userList.length; i++) {
           if (userList[i].user === params.id) {
@@ -98,7 +98,7 @@ export default function UserBlogs() {
   }, [blogs.length, isAuthenticated, userInfo.length]);
 
   async function deleteBlog(id) {
-    await fetch(`http://localhost:5000/blog/delete/${id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/blog/delete/${id}`, {
       method: "DELETE"
     });
 

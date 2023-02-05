@@ -18,7 +18,7 @@ export default function ViewPost() {
 
   useEffect(() => {
     async function getPostData() {
-      const responsePost = await fetch(`http://localhost:5000/post/${params.id}`);
+      const responsePost = await fetch(`https://blogmydaybackend.onrender.com/post/${params.id}`);
 
       if (!responsePost.ok) {
         const message = `An error occurred: ${responsePost.statusText}`;
@@ -53,12 +53,12 @@ export default function ViewPost() {
   // API Functions -------------------------
 
   async function deletePostAPI() {
-    await fetch(`http://localhost:5000/blog/${postInfo.blogID}`).then(async response => {
+    await fetch(`https://blogmydaybackend.onrender.com/blog/${postInfo.blogID}`).then(async response => {
       const blogInfo = await response.json();
 
       var editedBlog = { ...blogInfo };
       editedBlog.posts = editedBlog.posts.filter(e => e !== params.id);
-      await fetch(`http://localhost:5000/blog/update/${postInfo.blogID}`, {
+      await fetch(`https://blogmydaybackend.onrender.com/blog/update/${postInfo.blogID}`, {
         method: "POST",
         body: JSON.stringify(editedBlog),
         headers: {
@@ -67,7 +67,7 @@ export default function ViewPost() {
       });
     })
 
-    await fetch(`http://localhost:5000/post/delete/${params.id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/post/delete/${params.id}`, {
       method: "DELETE"
     });
 
@@ -86,7 +86,7 @@ export default function ViewPost() {
       editedPost.likes['1'].push(user.nickname);
     }
 
-    await fetch(`http://localhost:5000/post/update/${params.id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPost),
       headers: {
@@ -107,7 +107,7 @@ export default function ViewPost() {
       editedPost.likes['-1'].push(user.nickname);
     }
 
-    await fetch(`http://localhost:5000/post/update/${params.id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPost),
       headers: {

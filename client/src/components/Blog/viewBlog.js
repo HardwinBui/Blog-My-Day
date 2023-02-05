@@ -19,8 +19,8 @@ export default function ViewBlog() {
 
   useEffect(() => {
     async function getBlogData() {
-      const responseBlog = await fetch(`http://localhost:5000/blog/${params.id}`);
-      const responsePosts = await fetch(`http://localhost:5000/post/`);
+      const responseBlog = await fetch(`https://blogmydaybackend.onrender.com/blog/${params.id}`);
+      const responsePosts = await fetch(`https://blogmydaybackend.onrender.com/post/`);
 
       if (!responseBlog.ok) {
         const message = `An error occurred: ${responseBlog.statusText}`;
@@ -64,7 +64,7 @@ export default function ViewBlog() {
   // API Functions -------------------------
 
   async function deletePostAPI(id) {
-    await fetch(`http://localhost:5000/post/delete/${id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/post/delete/${id}`, {
       method: "DELETE"
     });
 
@@ -81,7 +81,7 @@ export default function ViewBlog() {
       editedBlog.followers.push(user.nickname);
     }
 
-    await fetch(`http://localhost:5000/blog/update/${params.id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/blog/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedBlog),
       headers: {
@@ -132,7 +132,7 @@ export default function ViewBlog() {
   }
 
   async function deleteBlog(id) {
-    await fetch(`http://localhost:5000/blog/delete/${params.id}`, {
+    await fetch(`https://blogmydaybackend.onrender.com/blog/delete/${params.id}`, {
       method: "DELETE"
     });
 
