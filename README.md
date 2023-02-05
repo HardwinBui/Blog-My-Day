@@ -25,6 +25,16 @@ __Login Page__
 
 Users will sign up or login with the required information. Auth0 was used for the sign up and login functionalities.
 
+__Nav Bar__ 
+
+![blogs dropdown](https://user-images.githubusercontent.com/27057402/216796095-65c05819-d62b-46c0-8b09-9d9b32758d06.png)
+The NavBar has multiple options for the users to pick from. The View Blogs dropdown provides the users with a few different pages where they can see blogs and posts made by the overall userbase. My Blogs will send the user to their personal page. 
+
+![notifications](https://user-images.githubusercontent.com/27057402/216796162-36a3f417-de68-4612-af36-ec1db60ebbf3.png)
+The Notifications bell icon will light up in the NavBar if the users has any notifications. The dropdown will display up to 3 of the lastest notifications they had. From here, they can choose to clear their notifications or view them all in the Notifications page shown below:
+
+![notif page](https://user-images.githubusercontent.com/27057402/216796205-fa46af06-5891-4b42-8f2a-dbb9ddf45036.PNG)
+
 __User Page__ 
 
 ![user page](https://user-images.githubusercontent.com/27057402/216795859-72b03e2b-f016-46b6-a620-318e1d9b5fb1.PNG)
