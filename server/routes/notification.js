@@ -34,6 +34,7 @@ notificationRoutes.route("/notification/add").post(function (req, response) {
   let myobj = {
     user: req.body.user,
     detail: req.body.detail,
+    date_created: req.body.date_created,
   };
   db_connect.collection("notifications").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -49,6 +50,7 @@ notificationRoutes.route("/notification/update/:id").post(function (req, respons
     $set: {
       user: req.body.user,
       detail: req.body.detail,
+      date_created: req.body.date_created,
     },
   };
   db_connect

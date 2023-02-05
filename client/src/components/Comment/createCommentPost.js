@@ -22,6 +22,7 @@ export default function CreateComment() {
   const [notif, setNotif] = useState({
     user: params.id,
     detail: "",
+    date_created: null,
   });
 
   const [verify, setUser] = useState([]);
@@ -48,8 +49,7 @@ export default function CreateComment() {
         setBlog(blog);
         updateNotif({ user: blogInfo.user });
         if (isAuthenticated) {
-          var msg = user.email.toString() + " made a comment to your post, " + postInfo.title;
-          msg += ", in your blog, " + blogInfo.name + "!";
+          var msg = user.nickname + " commented on your post, " + postInfo.title;
           updateNotif({ detail: msg });
         }
       }
@@ -121,6 +121,7 @@ export default function CreateComment() {
 
 
     // Create a notification
+    notif.date_created = new Date();
     const newNotif = { ...notif };
     if (!verify) {
       await fetch("http://localhost:5000/notification/add", {

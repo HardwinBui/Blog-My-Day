@@ -12,20 +12,20 @@
 .create-blog {
     margin-left: 10px;
 
-    background: rgb(113, 162, 226);
-    color: black;
+    background: #0d6efd ;
+    color: white;
     border: none;
     font: inherit;
     cursor: pointer;
     outline: inherit;
     border-radius: 5px;
-    padding: 5px 8px;
+    padding: 10px 15px;
 }
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(204, 247, 255);
+    background-color: rgb(255, 255, 255);
     padding-top: 0px;
     justify-content: center;
 }
@@ -50,6 +50,7 @@
     border-radius: 8px;
     color: black;
     justify-content: center;
+    border: 1px solid #c7c5c5;
 }
 
 .blogcard-container {
@@ -74,7 +75,7 @@
     background-color: #ffffff;
     color: black;
     box-sizing: border-box;
-    margin: 5px;
+    margin: 1px;
     line-height: 15px;
     font-size: 15px;
     padding: 20px;
@@ -85,7 +86,7 @@
     background-color: #ffffff;
     color: black;
     box-sizing: border-box;
-    margin: 5px;
+    margin: 1px;
     line-height: 15px;
     font-size: 15px;
     padding: 20px;

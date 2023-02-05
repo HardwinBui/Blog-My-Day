@@ -54,6 +54,7 @@ export default function BlogList() {
       <h6><em>Click on any post you find interesting and explore!</em></h6>
 
       <br />
+      <hr />
       <br />
       <ViewPostList />
     </div>

@@ -68,6 +68,8 @@ export default function EditPost() {
   return (
     <div class="page-container">
       <h3>Edit Post</h3>
+      <hr />
+
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
@@ -83,7 +85,8 @@ export default function EditPost() {
         <br />
         <div className="form-group">
           <label htmlFor="name">Content: </label>
-          <input
+          <textarea 
+            placeholder=""
             type="text"
             className="form-control"
             id="name"
@@ -98,7 +101,7 @@ export default function EditPost() {
         <div className="form-group">
           <input
             type="submit"
-            value="Update Record"
+            value="Update Post"
             className="btn btn-primary"
           />
         </div>

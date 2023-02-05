@@ -57,10 +57,10 @@ export default function BlogList() {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   function sortByFollowers(a, b) {
-    if(a.followers.length === b.followers.length)
+    if (a.followers.length === b.followers.length)
       return a.posts.length - b.posts.length;
     return a.followers.length - b.followers.length;
-  } 
+  }
 
   useEffect(() => {
     async function getBlogs() {
@@ -79,7 +79,6 @@ export default function BlogList() {
           var blogs = response.sort(sortByFollowers).reverse();
           setBlogs(blogs.filter(blog => blog.followers.includes(user.nickname)));
         }
-        else setBlogs(response.sort(sortByFollowers).reverse());
       });
     }
 
@@ -99,20 +98,25 @@ export default function BlogList() {
     });
   }
 
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
   return (
-    !isAuthenticated && (<LoginWarning/>)
+    !isAuthenticated && (<LoginWarning />)
 
-    || 
+    ||
 
     isAuthenticated && (
-    <div class="page-container">
-      <h3>Followed Blogs</h3>
-      <h6><em>Check on any of the blogs you're following!</em></h6>
+      <div class="page-container">
+        <h3>Followed Blogs</h3>
+        <h6><em>Check on any of the blogs you're following!</em></h6>
 
-      <br/>
-      <div class="flex-container">
-        {blogList()}
+        <br />
+        <hr />
+        <br />
+        <div class="flex-container">
+          {blogList()}
+        </div>
       </div>
-    </div>
-  ));
+    ));
 }

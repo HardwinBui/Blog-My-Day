@@ -17,6 +17,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import { Link } from "react-router-dom";
 import CreateUser from "../Auth0/createUser";
 import { useNavigate } from "react-router";
+import NotificationDropdown from "../Notification/notificationDropdown";
 
 
 // Here, we display our Navbar
@@ -66,14 +67,7 @@ export default function Navigation() {
             <DropdownToggle tag="div" caret color="primary">
               View Blogs
             </DropdownToggle>
-            <DropdownMenu>
-
-
-              <DropdownItem>
-                <div onClick={RecentPosts}>
-                  Recent Posts
-                </div>
-              </DropdownItem>
+            <DropdownMenu> 
 
               <DropdownItem>
                 <div onClick={FeaturedBlogs}>
@@ -84,6 +78,12 @@ export default function Navigation() {
               <DropdownItem>
                 <div onClick={FollowedBlogs}>
                   Followed Blogs
+                </div>
+              </DropdownItem>
+
+              <DropdownItem>
+                <div onClick={RecentPosts}>
+                  Recent Posts
                 </div>
               </DropdownItem>
 
@@ -106,19 +106,16 @@ export default function Navigation() {
           }
         </span>
 
-
-        <span class="navopt">
-          <Link to="/notification">
-            Notifications
-          </Link>
+        <span class="dropdown">
+          <NotificationDropdown/>
         </span>
 
       </div>
 
       <div>
         {isAuthenticated ? (
-          <div>
-            {user.nickname.toString() + "       "}
+          <div class="logout-container">
+            <h5 class="username">{user.nickname.toString()}</h5>
             <LogoutButton />
           </div>
         ) : (

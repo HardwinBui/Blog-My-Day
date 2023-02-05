@@ -65,8 +65,8 @@ export default function UserBlogs() {
       const response = await fetch(`http://localhost:5000/blog/`);
       const responseUser = await fetch(`http://localhost:5000/user/`).then((async response => {
         var userList = await response.json();
-        for(var i = 0; i < userList.length; i++) {
-          if(userList[i].user === params.id) {
+        for (var i = 0; i < userList.length; i++) {
+          if (userList[i].user === params.id) {
             setUser(userList[i]);
             break;
           }
@@ -82,8 +82,9 @@ export default function UserBlogs() {
       var records = await response.json();
       if (!isLoading && userInfo.user !== undefined) {
         records = records.filter(blog => blog.user === userInfo.user);
+        setBlogs(records);
       }
-      setBlogs(records);
+
 
       var date = new Date(userInfo.date_created);
       var time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
@@ -121,30 +122,35 @@ export default function UserBlogs() {
     return <div>Loading ...</div>;
   }
   return (
-    !isAuthenticated && (<LoginWarning/>)
+    !isAuthenticated && (<LoginWarning />)
 
     ||
 
     isAuthenticated && (
       <div class="page-container">
         <div>
-          <h3>{userInfo.user}</h3>
-          <h5><em>joined since {date} at {time}</em></h5>
-          <br />
+          <div class="search-container">
+            <h3>{userInfo.user}</h3>
 
-          <div class="bloginfo-container">
-            <h5>Recent Blogs</h5>
             <Link to={`/createBlog`}>
               <button class="create-blog">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-pencil" viewBox="0 0 16 16">
                   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                </svg>
+                </svg>     Create a Blog
               </button>
             </Link>
           </div>
+          <h6><em>joined since {date} at {time}</em></h6>
+
+          <br />
+          <hr />
+
+          <div class="bloginfo-container">
+            <h4>Recent Blogs:</h4>
+          </div>
+          <br />
         </div>
 
-        <br />
 
         <div class="flex-container">
           {BlogList()}

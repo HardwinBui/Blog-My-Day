@@ -49,6 +49,7 @@
   height: 56px;
   font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .nav>div {
@@ -74,4 +75,21 @@
 
 .navopt {
   padding-right: 25px;
+}
+
+.notif-dropdown {
+  width: 300px;
+  display: inline-table;
+  word-wrap: normal;
+}
+
+.username {
+  padding-top: 10px;
+  padding-right: 15px;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -122,7 +122,9 @@ export default function BlogList() {
       </div>
       <h6><em>Click on any blog you find interesting and explore!</em></h6>
 
-      <br /><br />
+      <br />
+      <hr />
+      <br />
       <div class="flex-container">
         {blogList()}
       </div>

@@ -73,6 +73,7 @@ export default function EditBlog() {
   return (
     <div class="page-container">
       <h3>Edit Blog</h3>
+      <hr />
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">

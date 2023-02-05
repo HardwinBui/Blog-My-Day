@@ -94,6 +94,7 @@ export default function CreatePost() {
   return (
     <div class="page-container">
       <h3>Create a New Post</h3>
+      <hr />
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
@@ -109,7 +110,8 @@ export default function CreatePost() {
         <br />
         <div className="form-group">
           <label htmlFor="name">Description</label>
-          <input
+          <textarea 
+            placeholder=""
             type="text"
             className="form-control"
             id="name"

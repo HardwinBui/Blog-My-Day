@@ -3,21 +3,17 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import '../../App.css';
 
-const FeatureBlog = (props) => (
-  <div>
-    <br /><br />
-    <h2>{props.record.name}</h2>
-    <br /><br />
-    <h5>by {props.record.user}</h5>
-    <br />
-
-    <br />
-    <Link onClick={() => { props.deleteRecord(props.record._id); }}>
-      <button class="delete">Delete Blog</button>
-    </Link>
-
-    <br /><br /><br />
-  </div>
+const NotificationList = (props) => (
+  <h5>
+    <div class="post-block">
+      <div>
+        <h5>{props.record.detail}</h5>
+        <h6><em>on {new Date(props.record.date_created).toLocaleDateString()} at
+          {" " + new Date(props.record.date_created).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
+        </em></h6>
+      </div>
+    </div>
+  </h5 >
 );
 
 export default function RecordList() {
@@ -37,10 +33,10 @@ export default function RecordList() {
       }
 
       var records = await response.json();
-      if (!isLoading)
-        records = records.filter(blog => blog.user == user.email.toString());
-
-      setRecords(records);
+      if (!isLoading) {
+        records = records.filter(blog => blog.user == user.nickname);
+        setRecords(records.reverse());
+      }
     }
 
     getRecords();
@@ -49,12 +45,15 @@ export default function RecordList() {
   }, [records.length]);
 
   // This method will delete a record
-  async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/notification/delete/${id}`, {
-      method: "DELETE"
-    });
+  async function clearNotifications() {
+    console.log("called");
+    for (var i = 0; i < records.length; i++) {
+      await fetch(`http://localhost:5000/notification/delete/${records[i]._id}`, {
+        method: "DELETE"
+      });
+    }
 
-    const newRecords = records.filter((el) => el._id !== id);
+    const newRecords = records.filter((el) => el.user !== user.nickname);
     setRecords(newRecords);
   }
 
@@ -62,9 +61,8 @@ export default function RecordList() {
   function recordList() {
     return records.map((record) => {
       return (
-        <FeatureBlog
+        <NotificationList
           record={record}
-          deleteRecord={() => deleteRecord(record._id)}
           key={record._id}
         />
       );
@@ -89,11 +87,22 @@ export default function RecordList() {
 
     isAuthenticated && (
       <div class="page-container">
-        <div>
+        <div class="search-container">
           <h3>Notifications</h3>
-          <br />
+
+          <Link onClick={() => { clearNotifications(); }}>
+            <button className="btn btn-danger">
+              Clear all notifications
+            </button>
+          </Link>
         </div>
-        <div class="flex-container">
+        <h6><em>Check out all of the notifications you missed!</em></h6>
+
+        <br />
+        <hr />
+        <br />
+
+        <div >
           {recordList()}
         </div>
       </div>

@@ -48,6 +48,7 @@ export default function CreateBlog() {
   return (
     <div class="page-container">
       <h3>Create a New Blog</h3>
+      <hr />
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
