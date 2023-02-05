@@ -11,7 +11,7 @@ https://blogmyday.onrender.com/
 
 Features
 ----
-__Home Page__ 
+### Home Page
 
 ![featured](https://user-images.githubusercontent.com/27057402/216795792-60403b65-f515-4c19-b56d-45315acf2d02.PNG)
 When users enter the page they will be presented with all of the blogs made by existing users. These blogs are sorted by popularity measured by their followers and posts. From here, users can either look at indiviual blogs or sign up to make some of their own.
@@ -69,7 +69,7 @@ This page contains all the details of the selected post. On this page, logged in
 
 __Create Blog Page__ 
 
-![create blog](https://user-images.githubusercontent.com/27057402/214251532-ab538f74-41ef-4fde-a906-bf4919159e4f.PNG)
+![create blog](https://user-images.githubusercontent.com/27057402/216796535-14c882da-a1f0-4d53-90e0-5639447c4df6.PNG)
 
 Users can create a blog on this page by entering the necessary data. Currently, users only have to specify the title of the blog.
 
@@ -81,7 +81,7 @@ Users can make revisions to an existing post here.
 
 __Create Post Page__ 
 
-![create post](https://user-images.githubusercontent.com/27057402/214251507-8218eae2-afa9-4e79-becd-b21f835832d3.PNG)
+![create post](https://user-images.githubusercontent.com/27057402/216796539-17d03d4e-661a-4935-937f-4c54308dc089.PNG)
 
 Users can make a post here by specifying its title and content.
 
