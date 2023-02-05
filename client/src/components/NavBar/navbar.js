@@ -57,7 +57,9 @@ export default function Navigation() {
       <CreateUser />
       <div>
         <span class="title">
-          Blog My Day
+          <Link to='/'>
+            Blog My Day
+          </Link>
         </span>
 
         <span class="vl"></span>
@@ -67,7 +69,7 @@ export default function Navigation() {
             <DropdownToggle tag="div" caret color="primary">
               View Blogs
             </DropdownToggle>
-            <DropdownMenu> 
+            <DropdownMenu>
 
               <DropdownItem>
                 <div onClick={FeaturedBlogs}>
@@ -107,7 +109,7 @@ export default function Navigation() {
         </span>
 
         <span class="dropdown">
-          <NotificationDropdown/>
+          <NotificationDropdown />
         </span>
 
       </div>
