@@ -16,7 +16,7 @@ Features
 ![featured](https://user-images.githubusercontent.com/27057402/216795792-60403b65-f515-4c19-b56d-45315acf2d02.PNG)
 When users enter the page they will be presented with all of the blogs made by existing users. These blogs are sorted by popularity measured by their followers and posts. From here, users can either look at indiviual blogs or sign up to make some of their own.
 
-![search filter](https://user-images.githubusercontent.com/27057402/216795824-362ea935-08be-47dd-afd7-bc969324b252.PNG)
+![search filter2](https://user-images.githubusercontent.com/27057402/216796834-028523fb-9c29-4a21-a6df-ad4f71d413ad.png)
 Additionally, users can filter and search specifics blogs by typing part of their title in the searchbar.
 
 ### Login Page
