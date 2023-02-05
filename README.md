@@ -25,17 +25,17 @@ __Login Page__
 
 Users will sign up or login with the required information. Auth0 was used for the sign up and login functionalities.
 
-__Your Blogs Page__ 
+__User Page__ 
 
-![my blogs](https://user-images.githubusercontent.com/27057402/214251548-d6d3bccd-1276-4b84-a31b-8fbb9cc8ba6b.PNG)
+![user page](https://user-images.githubusercontent.com/27057402/216795859-72b03e2b-f016-46b6-a620-318e1d9b5fb1.PNG)
 
 If the user logs into their account, they can access their blog page. Here, they can create a new blog, delete an existing blog, or view any of their blogs.
 
 __View Blog Page__ 
 
-![blog page](https://user-images.githubusercontent.com/27057402/214251539-11601b4e-122c-4548-b0c0-d559de877ae4.PNG)
+![view blog](https://user-images.githubusercontent.com/27057402/216795868-54c8d2f5-1569-4bd7-9b9e-5fb164a7392c.PNG)
 
-This page allows you to view all the posts and comments made about the blog. If you are logged in, you can comment on any of the posts listed in the blog. If you are the user who created the blog, you can also create a new post in the blog.
+This page allows you to view all the posts made about the blog you're looking at. You can click on any of the posts if you'd like to interact or comment on them. Logged in users can follow the blog by clicking the star icon next to the blog title. If you are the user who created the blog, you can also create a new post or choose to delete the blog.
 
 __Create Blog Page__ 
 
