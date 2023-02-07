@@ -27,7 +27,6 @@ export default function NotificationDropdown() {
                 records = records.filter(blog => blog.user == user.nickname);
                 setRecords(records.reverse());
             }
-            console.log(records.length);
         }
 
         getRecords();

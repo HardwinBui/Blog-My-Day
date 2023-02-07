@@ -13,7 +13,7 @@ import CreateUser from "../Auth0/createUser";
 import { useNavigate } from "react-router";
 import NotificationDropdown from "../Notification/notificationDropdown";
 import React, { useEffect, useState } from "react";
-//import useWindowDimensions from '../useWindowDimensions';
+import useWindowDimensions from '../useWindowDimensions';
 
 
 // Here, we display our Navbar
@@ -22,7 +22,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [screenWidth, setWidth] = useState(false);
-  const { height, width } = [0,0];//useWindowDimensions();
+  const { height, width } = useWindowDimensions();
 
   const toggle = () => { }
 

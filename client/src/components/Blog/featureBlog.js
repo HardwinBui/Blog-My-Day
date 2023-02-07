@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
-//import useWindowDimensions from '../useWindowDimensions';
+import useWindowDimensions from '../useWindowDimensions';
 
 const FeatureBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -55,7 +55,7 @@ export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
   const [filter, setFilter] = useState([]);
-  const { height, width } = [0,0];//useWindowDimensions();
+  const { height, width } = useWindowDimensions();
 
 
   function sortByFollowers(a, b) {
