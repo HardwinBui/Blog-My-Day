@@ -105,10 +105,10 @@
     align-content: space-between;
 }
 
-@media (max-width: 800px)  {
+/* @media (max-width: 800px)  {
     .col {
         display: flex;
         flex-direction: column;
         min-height: 100%;
     }
-}
+} */
