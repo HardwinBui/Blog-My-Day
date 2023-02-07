@@ -154,14 +154,6 @@ export default function ViewComment() {
                       }
                     </button>
                   </Link>
-
-
-                  <h6 class="post-title"><em>
-                    commented on
-                    {" " + new Date(record.date_created).toLocaleDateString() + " "}
-                    at
-                    {" " + new Date(record.date_created).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
-                  </em></h6>
                 </div>
 
 
@@ -169,6 +161,13 @@ export default function ViewComment() {
               </div>
 
               <h6><strong>{record.user}</strong></h6>
+
+              <h6><em>
+                    commented on
+                    {" " + new Date(record.date_created).toLocaleDateString() + " "}
+                    at
+                    {" " + new Date(record.date_created).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
+                  </em></h6>
               <h6>{record.content}</h6>
 
 

@@ -130,7 +130,10 @@ export default function UserBlogs() {
       <div class="page-container">
         <div>
           <div class="search-container">
-            <h3>{userInfo.user}</h3>
+            <div>
+              <h3>{userInfo.user}</h3>
+              <h6><em>joined since {date} at {time}</em></h6>
+            </div>
 
             <Link to={`/createBlog`}>
               <button class="create-blog">
@@ -140,7 +143,6 @@ export default function UserBlogs() {
               </button>
             </Link>
           </div>
-          <h6><em>joined since {date} at {time}</em></h6>
 
           <br />
           <hr />

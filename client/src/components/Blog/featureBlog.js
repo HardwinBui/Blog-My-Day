@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
+import useWindowDimensions from "../useWindowDimensions";
 
 const FeatureBlog = (props) => (
   <Link to={`/viewBlog/${props.record._id}`}>
@@ -54,6 +55,8 @@ export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
   const [filter, setFilter] = useState([]);
+  const { height, width } = useWindowDimensions();
+
 
   function sortByFollowers(a, b) {
     if (a.followers.length === b.followers.length)
@@ -102,11 +105,35 @@ export default function BlogList() {
     });
   }
 
-  return (
-    <div class="page-container">
-      <div class="search-container">
-        <div><h3>Featured Blogs</h3></div>
+  function NormalLayout() {
+    return (
+      <>
+        <div class="search-container">
+          <div><h3>Featured Blogs</h3></div>
+          <div class="form-field">
+            <input
+              type="search"
+              placeholder="Search blog here"
+              onChange={filterSearch}
+            />
+            <button class="search" onClick={UpdateFilter}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <h6><em>Click on any blog you find interesting and explore!</em></h6>
+      </>
+    );
+  }
 
+  function MobileLayout() {
+    return (
+      <>
+        <div><h3>Featured Blogs</h3></div>
+        <h6><em>Click on any blog you find interesting and explore!</em></h6>
+        <br/>
         <div class="form-field">
           <input
             type="search"
@@ -119,9 +146,14 @@ export default function BlogList() {
             </svg>
           </button>
         </div>
-      </div>
-      <h6><em>Click on any blog you find interesting and explore!</em></h6>
+      </>
+    );
+  }
 
+  return (
+    <div class="page-container">
+
+      {width >= 800 ? NormalLayout() : MobileLayout()}
       <br />
       <hr />
       <br />

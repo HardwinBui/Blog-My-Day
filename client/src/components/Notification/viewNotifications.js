@@ -88,15 +88,17 @@ export default function RecordList() {
     isAuthenticated && (
       <div class="page-container">
         <div class="search-container">
-          <h3>Notifications</h3>
-
+          <div>
+            <h3>Notifications</h3>
+            <h6><em>Check out all of the notifications you missed!</em></h6>
+          </div>
           <Link onClick={() => { clearNotifications(); }}>
             <button className="btn btn-danger">
               Clear all notifications
             </button>
           </Link>
         </div>
-        <h6><em>Check out all of the notifications you missed!</em></h6>
+
 
         <br />
         <hr />

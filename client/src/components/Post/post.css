@@ -5,11 +5,7 @@
     border: 0px solid #c7c5c5;
 }
 
-.likes-container {
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-}
+
 
 .like-value {
     padding: 3px 10px 0px 10px;
@@ -17,6 +13,7 @@
 
 .post-title {
     padding-left: 15px;
+    padding-right: 15px;
 }
 
 
@@ -67,7 +64,7 @@
 
 .edit-icon {
     //background: #0d6efd ;
-    background: #712CF9 ;
+    background: #7952B3 ;
     color: black;
     border: none;
     font: inherit;
@@ -76,11 +73,12 @@
     border-radius: 5px;
     padding: 10px 13px;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .rise-icon {
     //background: #0d6efd ;
-    background: #712CF9 ;
+    background: #7952B3 ;
     color: black;
     border: none;
     font: inherit;
@@ -89,8 +87,28 @@
     border-radius: 5px;
     padding: 10px 13px;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #712CF9  !important;
+    background-color: #7952B3  !important;
+    border: 0px solid #7952B3  !important;
+}
+
+.create-date {
+    padding-right: 15px;
+}
+
+.likes-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+@media (max-width: 800px)  {
+    .col {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
 }

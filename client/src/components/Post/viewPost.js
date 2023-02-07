@@ -210,20 +210,25 @@ export default function ViewPost() {
     <div class="page-container">
 
       <div class="toprow">
-        <div class="likes-container">
-          <PostLikes />
-          <div>
-            <h3 class="post-title">{postInfo.title}</h3>
-          </div>
-        </div>
         <div>
-          {viewBlog()}
-          {editPost(params.id)}
-          {deletePost(params.id)}
+          <div class="likes-container">
+            <PostLikes />
+            <div>
+              <h3 class="post-title">{postInfo.title}</h3>
+            </div>
+          </div>
+          <h5 class="create-date">by {postInfo.user} | <em>posted on {date} at {time} {postInfo.date_modified !== null && "(edited)"}</em></h5>
+        </div>
+        
+        <div>
+          <div class="col">
+            {viewBlog()}
+            {editPost(params.id)}
+            {deletePost(params.id)}
+          </div>
         </div>
       </div>
 
-      <h5>by {postInfo.user} | <em>posted on {date} at {time} {postInfo.date_modified !== null && "(edited)"}</em></h5>
 
       <br />
       <h6> {postInfo.content} </h6>
