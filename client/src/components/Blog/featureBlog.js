@@ -90,7 +90,7 @@ export default function BlogList() {
     //setSearchInput(filter.target.value.toLowerCase());
   }
 
-  async function filterSearch2(filte) {
+  async function filterSearchUpdate(filte) {
     setFilter(filte);
     setSearchInput(filter.target.value.toLowerCase());
   }
@@ -145,7 +145,7 @@ export default function BlogList() {
           <input
             type="search"
             placeholder="Search blog here"
-            onChange={filterSearch}
+            onChange={filterSearchUpdate}
           />
         </div>
       </>
