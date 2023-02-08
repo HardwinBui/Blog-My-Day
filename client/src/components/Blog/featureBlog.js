@@ -90,9 +90,9 @@ export default function BlogList() {
     //setSearchInput(filter.target.value.toLowerCase());
   }
 
-  async function filterSearch2(filter) {
-    setFilter(filter);
-    //setSearchInput(filter.target.value.toLowerCase());
+  async function filterSearch2(filte) {
+    setFilter(filte);
+    setSearchInput(filter.target.value.toLowerCase());
   }
 
   const UpdateFilter = () => {
