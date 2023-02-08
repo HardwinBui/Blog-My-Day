@@ -92,7 +92,7 @@ export default function BlogList() {
 
   async function filterSearch2(filter) {
     setFilter(filter);
-    setSearchInput(filter.target.value.toLowerCase());
+    //setSearchInput(filter.target.value.toLowerCase());
   }
 
   const UpdateFilter = () => {
