@@ -145,7 +145,7 @@ export default function BlogList() {
           <input
             type="search"
             placeholder="Search blog here"
-            onChange={filterSearch2}
+            onChange={filterSearch}
           />
         </div>
       </>
