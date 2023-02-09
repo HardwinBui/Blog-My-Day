@@ -29,12 +29,15 @@ import CreateComment from "./components/Comment/createComment";
 
 import ViewNotification from "./components/Notification/viewNotifications";
 
+import CreateImage from "./components/Image/createImage";
+
 const App = () => {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<FeatureBlog />} />
+        <Route exact path="/" element={<CreateImage />} />
+        {/* <Route exact path="/" element={<FeatureBlog />} /> */}
         {/* <Route exact path="/" element={<UserBlog />} /> */}
         <Route path="/notification" element={<ViewNotification />} />
 
@@ -51,7 +54,7 @@ const App = () => {
 
         <Route path="/createComment/:id" element={<CreateComment />} />
 
-        <Route path="/login" element={<LoginWarning/>} />
+        <Route path="/login" element={<LoginWarning />} />
         <Route path='*' element={<FeatureBlog />} />
       </Routes>
     </div>

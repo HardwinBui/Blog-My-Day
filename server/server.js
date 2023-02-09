@@ -10,6 +10,7 @@ app.use(require("./routes/post"));
 app.use(require("./routes/comment"));
 app.use(require("./routes/notification"));
 app.use(require("./routes/user"));
+app.use(require("./routes/image"));
 // get driver connection
 const dbo = require("./db/conn");
 

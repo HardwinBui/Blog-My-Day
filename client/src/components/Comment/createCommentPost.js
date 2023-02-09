@@ -33,7 +33,7 @@ export default function CreateComment() {
     async function getBlog() {
 
       // Get post data
-      const response = await fetch(`https://blogmydaybackend.onrender.com/post/${params.id}`);
+      const response = await fetch(`http://localhost:5000/post/${params.id}`);
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
@@ -44,7 +44,7 @@ export default function CreateComment() {
 
       // Get blog data
       if (postInfo.blogID !== undefined) {
-        const response2 = await fetch(`https://blogmydaybackend.onrender.com/blog/${postInfo.blogID}`);
+        const response2 = await fetch(`http://localhost:5000/blog/${postInfo.blogID}`);
         var blog = await response2.json();
         setBlog(blog);
         updateNotif({ user: blogInfo.user });
@@ -86,7 +86,7 @@ export default function CreateComment() {
     // Add the new comment to the database
     form.date_created = new Date();
     const newComment = { ...form };
-    await fetch("https://blogmydaybackend.onrender.com/comment/add", {
+    await fetch("http://localhost:5000/comment/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -105,7 +105,7 @@ export default function CreateComment() {
 
       var editedPost = { ...postInfo };
       editedPost.comments.push(data.insertedId);
-      await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
+      await fetch(`http://localhost:5000/post/update/${params.id}`, {
         method: "POST",
         body: JSON.stringify(editedPost),
         headers: {
@@ -124,7 +124,7 @@ export default function CreateComment() {
     notif.date_created = new Date();
     const newNotif = { ...notif };
     if (!verify) {
-      await fetch("https://blogmydaybackend.onrender.com/notification/add", {
+      await fetch("http://localhost:5000/notification/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

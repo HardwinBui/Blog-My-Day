@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { useAuth0 } from "@auth0/auth0-react";
 
-export default function CreateBlog() {
-  const { user } = useAuth0();
+export default function CreateImage() {
   const [form, setForm] = useState({
-    user: user.nickname,
-    name: "",
-    likes: [],
-    posts: [],
-    followers: [],
-    date_created: null,
-    date_modified: null,
+    img: "",
   });
   const navigate = useNavigate();
 
@@ -24,16 +16,14 @@ export default function CreateBlog() {
   async function onSubmit(e) {
     e.preventDefault();
 
+    const newImage = { ...form };
 
-    form.date_created = new Date();
-    const newBlog = { ...form };
-
-    await fetch("http://localhost:5000/blog/add", {
+    await fetch("http://localhost:5000/image/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newBlog),
+      body: JSON.stringify(newImage),
     })
       .catch(error => {
         window.alert(error);
@@ -42,12 +32,12 @@ export default function CreateBlog() {
 
 
     setForm({ name: "" });
-    navigate("/userBlog");
+    navigate("/");
   }
 
   return (
     <div class="page-container">
-      <h3>Create a New Blog</h3>
+      <h3>Create a New Image</h3>
       <hr />
       <form onSubmit={onSubmit}>
         <br />
@@ -65,7 +55,7 @@ export default function CreateBlog() {
         <div className="form-group">
           <input
             type="submit"
-            value="Create Blog"
+            value="Create Image"
             className="btn btn-primary"
           />
         </div>

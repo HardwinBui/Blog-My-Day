@@ -13,7 +13,7 @@ export default function ViewPostList() {
 
   useEffect(() => {
     async function getPostData() {
-      const responsePosts = await fetch(`https://blogmydaybackend.onrender.com/post/`);
+      const responsePosts = await fetch(`http://localhost:5000/post/`);
 
       if (!responsePosts.ok) {
         const message = `An error occurred: ${responsePosts.statusText}`;
@@ -36,7 +36,7 @@ export default function ViewPostList() {
   // API Functions -------------------------
 
   async function deletePostAPI(id) {
-    await fetch(`https://blogmydaybackend.onrender.com/post/delete/${id}`, {
+    await fetch(`http://localhost:5000/post/delete/${id}`, {
       method: "DELETE"
     });
 

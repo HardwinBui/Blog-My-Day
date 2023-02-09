@@ -18,7 +18,7 @@ export default function EditPost() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`https://blogmydaybackend.onrender.com/post/${params.id.toString()}`);
+      const response = await fetch(`http://localhost:5000/post/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -53,7 +53,7 @@ export default function EditPost() {
     const editedPerson = { ...form };
 
 
-    await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
+    await fetch(`http://localhost:5000/post/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPerson),
       headers: {

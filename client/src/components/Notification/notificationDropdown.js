@@ -14,7 +14,7 @@ export default function NotificationDropdown() {
     // This method fetches the records from the database.
     useEffect(() => {
         async function getRecords() {
-            const response = await fetch(`https://blogmydaybackend.onrender.com/notification/`);
+            const response = await fetch(`http://localhost:5000/notification/`);
 
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
@@ -38,7 +38,7 @@ export default function NotificationDropdown() {
     // This method will delete a record
     async function clearNotifications() {
         for (var i = 0; i < records.length; i++) {
-            await fetch(`https://blogmydaybackend.onrender.com/notification/delete/${records[i]._id}`, {
+            await fetch(`http://localhost:5000/notification/delete/${records[i]._id}`, {
                 method: "DELETE"
             });
         }

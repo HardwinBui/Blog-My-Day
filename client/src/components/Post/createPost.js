@@ -27,7 +27,7 @@ export default function CreatePost() {
 
   useEffect(() => {
     async function getBlogData() {
-      const responseBlog = await fetch(`https://blogmydaybackend.onrender.com/blog/${params.id}`);
+      const responseBlog = await fetch(`http://localhost:5000/blog/${params.id}`);
 
       if (!responseBlog.ok) {
         const message = `An error occurred: ${responseBlog.statusText}`;
@@ -52,7 +52,7 @@ export default function CreatePost() {
     const newPost = { ...form };
 
     // Add post to database
-    const postData = await fetch("https://blogmydaybackend.onrender.com/post/add", {
+    const postData = await fetch("http://localhost:5000/post/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export default function CreatePost() {
 
       var editedBlog = { ...blogInfo };
       editedBlog.posts.push(data.insertedId);
-      await fetch(`https://blogmydaybackend.onrender.com/blog/update/${params.id}`, {
+      await fetch(`http://localhost:5000/blog/update/${params.id}`, {
         method: "POST",
         body: JSON.stringify(editedBlog),
         headers: {
