@@ -17,7 +17,7 @@ export default function ViewPost() {
   const [time, setTime] = useState([]);
 
   const [showModal, setShowModal] = useState(false);
-  const imageSrc = "https://firebasestorage.googleapis.com/v0/b/blog-my-day-7d858.appspot.com/o/files%2Fmain%201.png?alt=media&token=5c36afb5-f699-43ad-91d6-3a47ccd682f8";
+  const imageSrc = "https://firebasestorage.googleapis.com/v0/b/blog-my-day-7d858.appspot.com/o/files%2Fundefined?alt=media&token=764e6bc0-a77e-4208-9e06-b0e8efeddc1b";
 
   useEffect(() => {
     async function getPostData() {
@@ -238,11 +238,14 @@ export default function ViewPost() {
       <br />
 
 
-      <div class="image-full">
-        <img src={imageSrc} alt="Image" />
-      </div>
-
-      <br />
+      {postInfo.img !== undefined && postInfo.img !== "" &&
+        <>
+          <div class="image-full">
+            <img src={postInfo.img} alt="Image" />
+          </div>
+          <br />
+        </>
+      }
 
       <hr />
 

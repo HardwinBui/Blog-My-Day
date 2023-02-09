@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+
 import storage from "../../firbaseConfig";
 import {
   ref,
@@ -12,14 +13,8 @@ export default function CreateImage() {
     img: null,
   });
   const navigate = useNavigate();
+
   const [percent, setPercent] = useState(0);
-
-  function updateForm(value) {
-    return setForm((prev) => {
-      return { ...prev, ...value };
-    });
-  }
-
   const [file, setFile] = useState("");
 
   function handleUpload() {

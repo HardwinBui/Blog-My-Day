@@ -7,6 +7,7 @@ export default function EditPost() {
     user: "",
     title: "",
     content: "",
+    img: "",
     likes: [],
     comments: [],
     date_created: null,
@@ -83,8 +84,9 @@ export default function EditPost() {
           />
         </div>
         <br />
+
         <div className="form-group">
-          <label htmlFor="name">Content: </label>
+          <label htmlFor="name">Image: </label>
           <textarea 
             placeholder=""
             type="text"

@@ -65,10 +65,16 @@ export default function ViewPostList() {
         <h6>{postData.content}</h6>
         <br />
 
-        <div class="image-small">
-          <img src={imageSrc} alt="Image" />
-        </div>
-        <br/>
+
+
+        {postData.img !== undefined && postData.img !== "" &&
+          <>
+            <div class="image-small">
+              <img src={postData.img} alt="Image" />
+            </div>
+            <br />
+          </>
+        }
 
         <div class="info-container">
           <div class="icon-spacer">
