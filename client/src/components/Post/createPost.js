@@ -144,7 +144,7 @@ export default function CreatePost() {
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
-          <label htmlFor="name" class="required-field">Title</label>
+          <label htmlFor="name" class="required-field">Title:</label>
           <input
             type="text"
             className="form-control"
@@ -156,7 +156,7 @@ export default function CreatePost() {
         </div>
         <br />
         <div className="form-group">
-          <label htmlFor="name" class="required-field">Description</label>
+          <label htmlFor="name" class="required-field">Description:</label>
           <textarea
             placeholder=""
             type="text"
@@ -170,10 +170,9 @@ export default function CreatePost() {
         <br />
 
         <div className="form-group">
-          <label htmlFor="name">Image</label>
+          <label htmlFor="name">Image:</label>
           <br />
           <input type="file" onChange={handleChange} accept="" />
-          {/* <button onClick={handleUpload}>Upload to Firebase</button> */}
           <br />
           <p>{percent}% uploaded</p>
         </div>

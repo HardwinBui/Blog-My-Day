@@ -34,6 +34,8 @@ blogRoutes.route("/blog/add").post(function (req, response) {
   let myobj = {
     user: req.body.user,
     name: req.body.name,
+    description: req.body.description,
+    img: req.body.img,
     likes: req.body.likes,
     posts: req.body.posts,
     followers: req.body.followers,
@@ -54,6 +56,8 @@ blogRoutes.route("/blog/update/:id").post(function (req, response) {
     $set: {
       user: req.body.user,
       name: req.body.name,
+      description: req.body.description,
+      img: req.body.img,
       likes: req.body.likes,
       posts: req.body.posts,
       followers: req.body.followers,

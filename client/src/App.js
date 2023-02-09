@@ -36,8 +36,8 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<CreateImage />} />
-        {/* <Route exact path="/" element={<FeatureBlog />} /> */}
+        {/* <Route exact path="/" element={<CreateImage />} /> */}
+        <Route exact path="/" element={<FeatureBlog />} />
         {/* <Route exact path="/" element={<UserBlog />} /> */}
         <Route path="/notification" element={<ViewNotification />} />
 

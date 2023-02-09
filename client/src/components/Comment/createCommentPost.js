@@ -154,6 +154,7 @@ export default function CreateComment() {
             id="name"
             value={form.content}
             onChange={(e) => updateForm({ content: e.target.value })}
+            required
           />
         </div>
         <div className="comment-button" align="right">

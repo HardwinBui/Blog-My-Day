@@ -12,7 +12,7 @@
 .create-blog {
     margin-left: 10px;
 
-    background: #0d6efd ;
+    background: #0d6efd;
     background: #7952B3;
     color: white;
     border: none;
@@ -52,6 +52,7 @@
     color: black;
     justify-content: center;
     border: 1px solid #c7c5c5;
+    align-items: center;
 }
 
 .blogcard-container {
@@ -122,3 +123,30 @@
     justify-content: space-between;
 }
 
+.image-icon {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media (max-width: 1000px) {
+    .image-icon {
+        width: 100%;
+        height: 56.25%;
+    }
+}
+
+.testy {
+    margin: 0 auto;
+}

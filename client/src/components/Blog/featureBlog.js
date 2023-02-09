@@ -8,8 +8,20 @@ const FeatureBlog = (props) => (
     <div class="flex-entry">
 
       <br /><br />
+
+      {/* <img class="testy" src={props.record.img} alt="Image" /> */}
+      {props.record.img !== undefined && props.record.img !== "" && props.record.img !== null &&
+        <div class="testy">
+          <div class="image-icon">
+            <img src={props.record.img} alt="Image" />
+          </div>
+          <br />
+        </div>
+      }
+
       <h2>{props.record.name}</h2>
       <br />
+
       <h5>by {props.record.user}</h5>
 
       <h6><em>created on {new Date(props.record.date_created).toLocaleDateString()}</em></h6>
@@ -99,7 +111,7 @@ export default function BlogList() {
     setSearchInput(filter.target.value.toLowerCase());
   }
 
-  
+
 
   function blogList() {
     return blogs.filter(blog => blog.name.toLowerCase().startsWith(searchInput)).map((record) => {
@@ -140,7 +152,7 @@ export default function BlogList() {
       <>
         <div><h3>Featured Blogs</h3></div>
         <h6><em>Click on any blog you find interesting and explore!</em></h6>
-        <br/>
+        <br />
         <div class="form-field">
           <input
             type="search"

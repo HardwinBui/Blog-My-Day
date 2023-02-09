@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 
+import storage from "../../firbaseConfig";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL
+} from "firebase/storage";
+
+
 export default function EditPost() {
   const [form, setForm] = useState({
     blogID: "",
@@ -15,6 +23,40 @@ export default function EditPost() {
   });
   const params = useParams();
   const navigate = useNavigate();
+
+  const [percent, setPercent] = useState(0);
+  const [file, setFile] = useState("");
+
+  async function handleUpload() {
+    const storageRef = ref(storage, `/files/${file.name}`)
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        // update progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          console.log(url);
+          form.img = url;
+          FinishSubmit();
+        });
+      }
+    );
+  }
+
+  // Handles input change event and updates state
+  function handleChange(event) {
+    setFile(event.target.files[0]);
+  }
 
   useEffect(() => {
     async function fetchData() {
@@ -50,9 +92,14 @@ export default function EditPost() {
 
   async function onSubmit(e) {
     e.preventDefault();
+
+    if (!file) FinishSubmit();
+    else handleUpload();
+  }
+
+  async function FinishSubmit() {
     form.date_modified = new Date();
     const editedPerson = { ...form };
-
 
     await fetch(`http://localhost:5000/post/update/${params.id}`, {
       method: "POST",
@@ -74,30 +121,41 @@ export default function EditPost() {
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
-          <label htmlFor="name">Title: </label>
+          <label htmlFor="name" class="required-field">Title: </label>
           <input
             type="text"
             className="form-control"
             id="name"
             value={form.title}
             onChange={(e) => updateForm({ title: e.target.value })}
+            required
           />
         </div>
         <br />
 
         <div className="form-group">
-          <label htmlFor="name">Image: </label>
-          <textarea 
+          <label htmlFor="name" class="required-field">Description: </label>
+          <textarea
             placeholder=""
             type="text"
             className="form-control"
             id="name"
             value={form.content}
             onChange={(e) => updateForm({ content: e.target.value })}
+            required
           />
         </div>
 
 
+        <br />
+
+        <div className="form-group">
+          <label htmlFor="name">Image:</label>
+          <br />
+          <input type="file" onChange={handleChange} accept="" />
+          <br />
+          <p>{percent}% uploaded</p>
+        </div>
         <br />
 
         <div className="form-group">

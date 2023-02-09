@@ -16,9 +16,6 @@ export default function ViewPost() {
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
 
-  const [showModal, setShowModal] = useState(false);
-  const imageSrc = "https://firebasestorage.googleapis.com/v0/b/blog-my-day-7d858.appspot.com/o/files%2Fundefined?alt=media&token=764e6bc0-a77e-4208-9e06-b0e8efeddc1b";
-
   useEffect(() => {
     async function getPostData() {
       const responsePost = await fetch(`http://localhost:5000/post/${params.id}`);
