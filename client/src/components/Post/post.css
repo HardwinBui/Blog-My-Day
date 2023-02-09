@@ -41,7 +41,7 @@
 
 
 .delete-icon {
-    background: #dc3545 ;
+    background: #dc3545;
     color: black;
     border: none;
     font: inherit;
@@ -52,7 +52,7 @@
 }
 
 .delete-icon-post {
-    background: #dc3545 ;
+    background: #dc3545;
     color: black;
     border: none;
     font: inherit;
@@ -64,7 +64,7 @@
 
 .edit-icon {
     //background: #0d6efd ;
-    background: #7952B3 ;
+    background: #7952B3;
     color: black;
     border: none;
     font: inherit;
@@ -78,7 +78,7 @@
 
 .rise-icon {
     //background: #0d6efd ;
-    background: #7952B3 ;
+    background: #7952B3;
     color: black;
     border: none;
     font: inherit;
@@ -90,9 +90,12 @@
     margin-bottom: 5px;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #7952B3  !important;
-    border: 0px solid #7952B3  !important;
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #7952B3 !important;
+    border: 0px solid #7952B3 !important;
 }
 
 .create-date {
@@ -105,10 +108,51 @@
     align-content: space-between;
 }
 
-@media (max-width: 800px)  {
+.image-full {
+    overflow: hidden;
+    width: 800px;
+    height: 450px;
+
+    border-radius: 10px;
+}
+
+.image-full img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (max-width: 1000px) {
+    .image-full {
+        width: 100%;
+        height: 56.25%;
+    }
+
+    .image-small {
+        width: 100%;
+        height: 56.25%;
+    }
+}
+
+@media (max-width: 800px) {
     .col {
         display: flex;
         flex-direction: column;
         min-height: 100%;
     }
+}
+
+.image-small {
+    overflow: hidden;
+    width: 320px;
+    height: 180px;
+
+    border-radius: 10px;
+}
+
+.image-small img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }

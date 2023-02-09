@@ -16,6 +16,9 @@ export default function ViewPost() {
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
 
+  const [showModal, setShowModal] = useState(false);
+  const imageSrc = "https://firebasestorage.googleapis.com/v0/b/blog-my-day-7d858.appspot.com/o/files%2Fmain%201.png?alt=media&token=5c36afb5-f699-43ad-91d6-3a47ccd682f8";
+
   useEffect(() => {
     async function getPostData() {
       const responsePost = await fetch(`http://localhost:5000/post/${params.id}`);
@@ -219,7 +222,7 @@ export default function ViewPost() {
           </div>
           <h5 class="create-date">by {postInfo.user} | <em>posted on {date} at {time} {postInfo.date_modified !== null && "(edited)"}</em></h5>
         </div>
-        
+
         <div>
           <div class="col">
             {viewBlog()}
@@ -233,6 +236,14 @@ export default function ViewPost() {
       <br />
       <h6> {postInfo.content} </h6>
       <br />
+
+
+      <div class="image-full">
+        <img src={imageSrc} alt="Image" />
+      </div>
+
+      <br />
+
       <hr />
 
       <div class="info-container">

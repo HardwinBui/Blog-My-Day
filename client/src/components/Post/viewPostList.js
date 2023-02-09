@@ -10,6 +10,9 @@ export default function ViewPostList() {
 
   const [postList, setPosts] = useState([]);
 
+  const imageSrc = "https://firebasestorage.googleapis.com/v0/b/blog-my-day-7d858.appspot.com/o/files%2Fmain%201.png?alt=media&token=5c36afb5-f699-43ad-91d6-3a47ccd682f8";
+
+
 
   useEffect(() => {
     async function getPostData() {
@@ -61,6 +64,11 @@ export default function ViewPostList() {
         <br />
         <h6>{postData.content}</h6>
         <br />
+
+        <div class="image-small">
+          <img src={imageSrc} alt="Image" />
+        </div>
+        <br/>
 
         <div class="info-container">
           <div class="icon-spacer">
