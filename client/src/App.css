@@ -184,3 +184,9 @@ a:link, a:visited {
   position: relative;
   display: inline-block;
 }
+
+.required-field::after {
+  content: "*";
+  color: red;
+  margin-left:2px
+}

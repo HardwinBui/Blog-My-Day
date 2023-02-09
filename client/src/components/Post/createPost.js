@@ -30,11 +30,6 @@ export default function CreatePost() {
   const [file, setFile] = useState("");
 
   async function handleUpload() {
-    if (!file) {
-      alert("Please choose a file first!")
-      return;
-    }
-
     const storageRef = ref(storage, `/files/${file.name}`)
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -94,7 +89,8 @@ export default function CreatePost() {
   async function onSubmit(e) {
     e.preventDefault();
 
-    var upload = await handleUpload();
+    if (!file) FinishSubmit();
+    else handleUpload();
   }
 
   async function FinishSubmit() {
@@ -148,18 +144,19 @@ export default function CreatePost() {
       <form onSubmit={onSubmit}>
         <br />
         <div className="form-group">
-          <label htmlFor="name">Title</label>
+          <label htmlFor="name" class="required-field">Title</label>
           <input
             type="text"
             className="form-control"
             id="name"
             value={form.title}
             onChange={(e) => updateForm({ title: e.target.value })}
+            required
           />
         </div>
         <br />
         <div className="form-group">
-          <label htmlFor="name">Description</label>
+          <label htmlFor="name" class="required-field">Description</label>
           <textarea
             placeholder=""
             type="text"
@@ -167,6 +164,7 @@ export default function CreatePost() {
             id="name"
             value={form.content}
             onChange={(e) => updateForm({ content: e.target.value })}
+            required
           />
         </div>
         <br />
@@ -177,7 +175,7 @@ export default function CreatePost() {
           <input type="file" onChange={handleChange} accept="" />
           {/* <button onClick={handleUpload}>Upload to Firebase</button> */}
           <br />
-          <p>{percent} "% done"</p>
+          <p>{percent}% uploaded</p>
         </div>
         <br />
         <div className="form-group">
