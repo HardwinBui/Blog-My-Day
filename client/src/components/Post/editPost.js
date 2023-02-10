@@ -90,6 +90,10 @@ export default function EditPost() {
     });
   }
 
+  function deleteImg() {
+    updateForm({img: ""});
+  }
+
   async function onSubmit(e) {
     e.preventDefault();
 
@@ -152,9 +156,28 @@ export default function EditPost() {
         <div className="form-group">
           <label htmlFor="name">Image:</label>
           <br />
-          <input type="file" onChange={handleChange} accept="" />
-          <br />
-          <p>{percent}% uploaded</p>
+          {form.img === "" &&
+            <>
+              <input type="file" onChange={handleChange} accept="" />
+              <br />
+              {percent > 0 && <p>{percent}% uploaded</p>}
+            </>
+          }
+          {form.img !== "" &&
+            <div class="clear-img-group">
+              <br />
+              <div class="image-small">
+                <img src={form.img} alt="Image" />
+              </div>
+              <div class="clear-img">
+                <button className="btn btn-danger" type="button" onClick={deleteImg}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          }
         </div>
         <br />
 

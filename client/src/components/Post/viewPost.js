@@ -231,7 +231,7 @@ export default function ViewPost() {
 
 
       <br />
-      <h6> {postInfo.content} </h6>
+      <h6 class="paragraph"> {postInfo.content} </h6>
       <br />
 
 

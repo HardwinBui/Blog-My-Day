@@ -174,7 +174,7 @@ export default function CreatePost() {
           <br />
           <input type="file" onChange={handleChange} accept="" />
           <br />
-          <p>{percent}% uploaded</p>
+          {percent > 0 && <p>{percent}% uploaded</p>}
         </div>
         <br />
         <div className="form-group">

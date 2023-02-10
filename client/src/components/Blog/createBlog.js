@@ -134,9 +134,9 @@ export default function CreateBlog() {
             value={form.description}
             onChange={(e) => updateForm({ description: e.target.value })}
             required
-            maxlength="500" minlength="5"
+            maxlength="1500" minlength="500"
           />
-          <p align="right">Character Count: {form.description !== undefined ? (form.description.length) : (0)} / 500</p>
+          <p align="right">Character Count: {form.description !== undefined ? (form.description.length) : (0)} / 1500</p>
         </div>
         
 
@@ -145,7 +145,7 @@ export default function CreateBlog() {
           <br />
           <input type="file" onChange={handleChange} accept="" />
           <br />
-          <p>{percent}% uploaded</p>
+          {percent > 0 && <p>{percent}% uploaded</p>}
         </div>
         <br />
 

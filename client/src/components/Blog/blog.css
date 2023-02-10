@@ -147,6 +147,16 @@
     }
 }
 
-.testy {
-    margin: 0 auto;
+.paragraph {
+    white-space: pre-line;
+}
+
+.clear-img {
+    margin-left: 5px;
+    align-self: flex-end;
+}
+
+.clear-img-group {
+    display: flex;
+    margin-top: 10px;
 }

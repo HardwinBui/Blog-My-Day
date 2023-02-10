@@ -21,37 +21,41 @@ export default function Navigation() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const [screenWidth, setWidth] = useState(false);
   const { height, width } = useWindowDimensions();
+  const [test, setTest] = useState(1);
 
   const toggle = () => { }
 
-  const onMouseEnter = () => {
-    setOpen(true)
+  const onMouseEnterBlogs = () => {
+    setTest(test+1);
+    //setOpen(true)
+    console.log("true");
   }
 
-  const onMouseLeave = () => {
-    setOpen(false)
+  const onMouseLeaveBlogs = () => {
+    setTest(false);
+    //console.log("false");
+    //setOpen(false)
   }
 
   const FeaturedBlogs = () => {
     navigate("/");
-    onMouseLeave();
+    onMouseLeaveBlogs();
   }
 
   const FollowedBlogs = () => {
     navigate("/followedBlog");
-    onMouseLeave();
+    onMouseLeaveBlogs();
   }
 
   const RecentPosts = () => {
     navigate("/recentPosts");
-    onMouseLeave();
+    onMouseLeaveBlogs();
   }
 
   const ViewNotifications = () => {
     navigate("/notification");
-    onMouseLeave();
+    onMouseLeaveBlogs();
   }
 
   const UserBlog = () => {
@@ -59,7 +63,7 @@ export default function Navigation() {
     if(isAuthenticated) link += user.nickname;
     else link += "null";
     navigate(link);
-    onMouseLeave();
+    onMouseLeaveBlogs();
   }
 
   function NormalWidthNav() {
@@ -77,7 +81,11 @@ export default function Navigation() {
           <span class="vl"></span>
 
           <span class="dropdown">
-            <Dropdown className="d-inline-block" onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={open} toggle={toggle}>
+            <NotificationDropdown />
+          </span>
+          
+          <span class="dropdown">
+            <Dropdown className="d-inline-block" onMouseOver={onMouseEnterBlogs} onMouseLeave={onMouseLeaveBlogs} isOpen={open} toggle={toggle}>
               <DropdownToggle tag="div" caret color="primary">
                 View Blogs
               </DropdownToggle>
@@ -120,9 +128,7 @@ export default function Navigation() {
             }
           </span>
 
-          <span class="dropdown">
-            <NotificationDropdown />
-          </span>
+          
 
         </div>
 
@@ -145,7 +151,7 @@ export default function Navigation() {
         <div>
 
           <span class="dropdown">
-            <Dropdown className="d-inline-block" onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={open} toggle={toggle}>
+            <Dropdown className="d-inline-block" onMouseOver={onMouseEnterBlogs} onMouseLeave={onMouseLeaveBlogs} isOpen={open} toggle={toggle}>
               <DropdownToggle tag="div" color="none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />

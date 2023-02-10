@@ -148,7 +148,10 @@ export default function ViewBlog() {
         <div>
           <div class="likes-container">
             {followBlog()}
-            <h3 class="post-title">{blogInfo.name}</h3>
+            {isAuthenticated ?
+              (<h3 class="post-title">{blogInfo.name}</h3>)
+              : (<h3>{blogInfo.name}</h3>)
+            }
           </div>
           <h5 class="create-date">by {blogInfo.user} | <em>created on {date} at {time} {blogInfo.date_modified !== null && "(edited)"}</em></h5>
         </div>
@@ -188,7 +191,7 @@ export default function ViewBlog() {
 
 
       <br />
-      <h6> {blogInfo.description} </h6>
+      <h6 class="paragraph"> {blogInfo.description} </h6>
 
       <br />
       <hr />

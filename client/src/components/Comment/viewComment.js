@@ -168,7 +168,7 @@ export default function ViewComment() {
                     at
                     {" " + new Date(record.date_created).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
                   </em></h6>
-              <h6>{record.content}</h6>
+              <h6 class="paragraph">{record.content}</h6>
 
 
             </div>
