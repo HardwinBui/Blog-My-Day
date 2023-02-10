@@ -22,20 +22,17 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { height, width } = useWindowDimensions();
-  const [test, setTest] = useState(1);
 
   const toggle = () => { }
 
   const onMouseEnterBlogs = () => {
-    setTest(test+1);
-    //setOpen(true)
+    setOpen(true)
     console.log("true");
   }
 
   const onMouseLeaveBlogs = () => {
-    setTest(false);
     //console.log("false");
-    //setOpen(false)
+    setOpen(false)
   }
 
   const FeaturedBlogs = () => {
@@ -80,9 +77,6 @@ export default function Navigation() {
 
           <span class="vl"></span>
 
-          <span class="dropdown">
-            <NotificationDropdown />
-          </span>
           
           <span class="dropdown">
             <Dropdown className="d-inline-block" onMouseOver={onMouseEnterBlogs} onMouseLeave={onMouseLeaveBlogs} isOpen={open} toggle={toggle}>
@@ -128,7 +122,9 @@ export default function Navigation() {
             }
           </span>
 
-          
+          <span class="dropdown">
+            <NotificationDropdown />
+          </span>
 
         </div>
 

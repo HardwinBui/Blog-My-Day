@@ -27,7 +27,7 @@ export default function NotificationDropdown() {
                 records = records.filter(blog => blog.user == user.nickname);
                 setNotifications(records.reverse());
             }
-            
+            //console.log("testyu");
         }
 
         getNotifications();
@@ -86,7 +86,7 @@ export default function NotificationDropdown() {
 
         isAuthenticated && (
             <Dropdown className="d-inline-block" onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={openNotifs} toggle={toggle}>
-                {notifications.length}
+                {/* {notifications.length} */}
                 <DropdownToggle tag="div" caret color="primary">
                     {notifications.length > 0 &&
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
