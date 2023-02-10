@@ -9,9 +9,11 @@ const FeatureBlog = (props) => (
 
       <br /><br />
 
-      {/* <img class="testy" src={props.record.img} alt="Image" /> */}
+      <h2>{props.record.name}</h2>
+      <br />
+
       {props.record.img !== undefined && props.record.img !== "" && props.record.img !== null &&
-        <div class="testy">
+        <div>
           <div class="image-icon">
             <img src={props.record.img} alt="Image" />
           </div>
@@ -19,8 +21,6 @@ const FeatureBlog = (props) => (
         </div>
       }
 
-      <h2>{props.record.name}</h2>
-      <br />
 
       <h5>by {props.record.user}</h5>
 
