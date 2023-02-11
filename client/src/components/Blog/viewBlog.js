@@ -9,7 +9,7 @@ export default function ViewBlog() {
   const params = useParams();
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  const [verify, setUser] = useState([]);
+  const [verify, setUser] = useState(false);
   const [blogInfo, setBlog] = useState([]);
   const [postList, setPosts] = useState([]);
   const [date, setDate] = useState([]);

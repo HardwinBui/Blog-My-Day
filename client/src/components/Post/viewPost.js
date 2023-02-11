@@ -13,7 +13,7 @@ export default function ViewPost() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
 
-  const [verify, setUser] = useState([]);
+  const [verify, setUser] = useState(false);
   const [postInfo, setPosts] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
