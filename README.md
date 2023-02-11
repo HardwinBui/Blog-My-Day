@@ -69,7 +69,6 @@ This page contains all the details of the selected post. On this page, logged in
 
 ### Mobile Support
 
-![responsive](https://user-images.githubusercontent.com/27057402/218233679-cf066b2e-10b1-441b-adca-a5634df3c40d.png | width=100)
 <img src="https://user-images.githubusercontent.com/27057402/218233679-cf066b2e-10b1-441b-adca-a5634df3c40d.png" height="500">
 
 The website is fully responsive and workd for mobile devices.
