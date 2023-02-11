@@ -89,7 +89,7 @@ export default function CreateBlog() {
     form.date_created = new Date();
     const newBlog = { ...form };
 
-    await fetch("http://localhost:5000/blog/add", {
+    await fetch("https://blogmydaybackend.onrender.com/blog/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

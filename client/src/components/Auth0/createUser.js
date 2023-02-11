@@ -17,7 +17,7 @@ const CreateUser = () => {
 
   useEffect(() => {
     async function CheckUser() {
-      const userResponse = await fetch(`http://localhost:5000/user/`);
+      const userResponse = await fetch(`https://blogmydaybackend.onrender.com/user/`);
 
       if (!userResponse.ok) {
         const message = `An error occurred: ${userResponse.statusText}`;
@@ -45,7 +45,7 @@ const CreateUser = () => {
           userInfo.user = user.nickname;
           const newUser = { ...userInfo };
 
-          await fetch("http://localhost:5000/user/add", {
+          await fetch("https://blogmydaybackend.onrender.com/user/add", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
