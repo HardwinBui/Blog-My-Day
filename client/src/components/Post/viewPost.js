@@ -5,6 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import './post.css';
 import CreateComment from "../Comment/createCommentPost";
 import ViewComment from "../Comment/viewComment";
+import useWindowDimensions from '../useWindowDimensions';
+
 
 export default function ViewPost() {
   const params = useParams();
@@ -15,6 +17,7 @@ export default function ViewPost() {
   const [postInfo, setPosts] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
+  const { height, width } = useWindowDimensions();
 
   useEffect(() => {
     async function getPostData() {
@@ -211,12 +214,22 @@ export default function ViewPost() {
 
       <div class="toprow">
         <div>
-          <div class="likes-container">
-            <PostLikes />
-            <div>
-              <h3 class="post-title">{postInfo.title}</h3>
+          {width >= 800 ? (
+            <div class="likes-container">
+              <PostLikes />
+              <div>
+                <h3 class="post-title">{postInfo.title}</h3>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div>
+              <div class="likes-container">
+                <PostLikes />
+              </div>
+              <h3>{postInfo.title}</h3>
+            </div>
+          )}
+
           <h5 class="create-date">by {postInfo.user} | <em>posted on {date} at {time} {postInfo.date_modified !== null && "(edited)"}</em></h5>
         </div>
 

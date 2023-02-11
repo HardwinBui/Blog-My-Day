@@ -123,17 +123,6 @@
 }
 
 
-@media (max-width: 1000px) {
-    .image-full {
-        width: 100%;
-        height: 56.25%;
-    }
-
-    .image-small {
-        width: 100%;
-        height: 56.25%;
-    }
-}
 
 @media (max-width: 800px) {
     .col {
@@ -155,4 +144,17 @@
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+
+@media (max-width: 1000px) {
+    .image-full {
+        width: 100%;
+        height: 56.25%;
+    }
+
+    .image-small {
+        width: 100%;
+        height: auto;
+    }
 }
