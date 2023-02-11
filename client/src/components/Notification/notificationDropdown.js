@@ -23,7 +23,7 @@ export default function NotificationDropdown() {
             }
 
             var records = await response.json();
-            if (!isLoading) {
+            if (isAuthenticated) {
                 records = records.filter(blog => blog.user == user.nickname);
                 setNotifications(records.reverse());
             }
