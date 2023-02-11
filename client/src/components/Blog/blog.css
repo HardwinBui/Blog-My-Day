@@ -141,13 +141,7 @@
 }
 
 
-/* @media (max-width: 1000px) {
-    .image-icon {
-        width: 100%;
-        height: 56.25%;
-    }
-}
- */
+
 .paragraph {
     white-space: pre-line;
 }
@@ -160,4 +154,11 @@
 .clear-img-group {
     display: flex;
     margin-top: 10px;
+}
+
+@media (max-width: 1000px) {
+    .image-icon {
+        width: 100%;
+        height: 56.25%;
+    }
 }
