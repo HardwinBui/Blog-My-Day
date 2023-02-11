@@ -29,7 +29,7 @@ export default function CreateComment() {
     async function getBlog() {
 
       // Get post data
-      const response = await fetch(`http://blogmydaybackend.onrender.com/post/${params.id}`);
+      const response = await fetch(`https://blogmydaybackend.onrender.com/post/${params.id}`);
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
@@ -40,7 +40,7 @@ export default function CreateComment() {
 
       // Get blog data
       if (postInfo.blogID !== undefined) {
-        const response2 = await fetch(`http://blogmydaybackend.onrender.com/blog/${postInfo.blogID}`);
+        const response2 = await fetch(`https://blogmydaybackend.onrender.com/blog/${postInfo.blogID}`);
         var blog = await response2.json();
         setBlog(blog);
         updateNotif({ user: blogInfo.user });
@@ -81,7 +81,7 @@ export default function CreateComment() {
 
     // Add the new comment to the database
     const newComment = { ...form };
-    await fetch("http://blogmydaybackend.onrender.com/comment/add", {
+    await fetch("https://blogmydaybackend.onrender.com/comment/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ export default function CreateComment() {
 
       var editedPost = { ...blogInfo };
       editedPost.comments.push(data.insertedId);
-      await fetch(`http://blogmydaybackend.onrender.com/post/update/${params.id}`, {
+      await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
         method: "POST",
         body: JSON.stringify(editedPost),
         headers: {
@@ -118,7 +118,7 @@ export default function CreateComment() {
     // Create a notification
     const newNotif = { ...notif };
     if (!verify) {
-      await fetch("http://blogmydaybackend.onrender.com/notification/add", {
+      await fetch("https://blogmydaybackend.onrender.com/notification/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
