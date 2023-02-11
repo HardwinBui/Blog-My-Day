@@ -56,7 +56,7 @@ export default function CreateImage() {
 
     const newImage = { ...form };
 
-    await fetch("https://blogmydaybackend.onrender.com/image/add", {
+    await fetch("http://blogmydaybackend.onrender.com/image/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

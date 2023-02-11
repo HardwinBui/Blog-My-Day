@@ -60,7 +60,7 @@ export default function EditBlog() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`https://blogmydaybackend.onrender.com/blog/${params.id.toString()}`);
+      const response = await fetch(`http://blogmydaybackend.onrender.com/blog/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -113,7 +113,7 @@ export default function EditBlog() {
       date_modified: new Date(),
     };
 
-    await fetch(`https://blogmydaybackend.onrender.com/blog/update/${params.id}`, {
+    await fetch(`http://blogmydaybackend.onrender.com/blog/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedBlog),
       headers: {

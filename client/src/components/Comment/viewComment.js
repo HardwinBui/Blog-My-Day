@@ -14,7 +14,7 @@ export default function ViewComment() {
 
   useEffect(() => {
     async function getCommentData() {
-      const responseComments = await fetch(`https://blogmydaybackend.onrender.com/comment`);
+      const responseComments = await fetch(`http://blogmydaybackend.onrender.com/comment`);
 
       if (!responseComments.ok) {
         const message = `An error occurred: ${responseComments.statusText}`;
@@ -33,12 +33,12 @@ export default function ViewComment() {
   }, [comment.length, isAuthenticated]);
 
   async function deleteCommentAPI(id) {
-    await fetch(`https://blogmydaybackend.onrender.com/post/${params.id}`).then(async response => {
+    await fetch(`http://blogmydaybackend.onrender.com/post/${params.id}`).then(async response => {
       const postInfo = await response.json();
 
       var editedPost = { ...postInfo };
       editedPost.comments = editedPost.comments.filter(e => e !== id);
-      await fetch(`https://blogmydaybackend.onrender.com/post/update/${params.id}`, {
+      await fetch(`http://blogmydaybackend.onrender.com/post/update/${params.id}`, {
         method: "POST",
         body: JSON.stringify(editedPost),
         headers: {
@@ -47,7 +47,7 @@ export default function ViewComment() {
       });
     })
 
-    await fetch(`https://blogmydaybackend.onrender.com/comment/delete/${id}`, {
+    await fetch(`http://blogmydaybackend.onrender.com/comment/delete/${id}`, {
       method: "DELETE"
     });
 
@@ -69,7 +69,7 @@ export default function ViewComment() {
       editedComment.likes['1'].push(user.nickname);
     }
 
-    await fetch(`https://blogmydaybackend.onrender.com/comment/update/${commentID}`, {
+    await fetch(`http://blogmydaybackend.onrender.com/comment/update/${commentID}`, {
       method: "POST",
       body: JSON.stringify(editedComment),
       headers: {
@@ -90,7 +90,7 @@ export default function ViewComment() {
       editedComment.likes['-1'].push(user.nickname);
     }
 
-    await fetch(`https://blogmydaybackend.onrender.com/comment/update/${commentID}`, {
+    await fetch(`http://blogmydaybackend.onrender.com/comment/update/${commentID}`, {
       method: "POST",
       body: JSON.stringify(editedComment),
       headers: {

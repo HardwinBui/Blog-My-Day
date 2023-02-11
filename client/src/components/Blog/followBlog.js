@@ -75,7 +75,7 @@ export default function BlogList() {
 
   useEffect(() => {
     async function getBlogs() {
-      const response = await fetch(`https://blogmydaybackend.onrender.com/blog/`);
+      const response = await fetch(`http://blogmydaybackend.onrender.com/blog/`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
