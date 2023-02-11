@@ -121,13 +121,7 @@
 
 
 
-@media (max-width: 800px) {
-    .col {
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
-    }
-}
+
 
 .image-small {
     overflow: hidden;
@@ -143,7 +137,7 @@
     height: 100%;
 }
 
-
+/* 
 @media (max-width: 1000px) {
     .image-full {
         width: 100%;
@@ -155,3 +149,11 @@
         height: auto;
     }
 }
+
+@media (max-width: 800px) {
+    .col {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+} */
