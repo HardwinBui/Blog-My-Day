@@ -13,10 +13,10 @@ Features
 ----
 ### Home Page
 
-![featured](https://user-images.githubusercontent.com/27057402/216795792-60403b65-f515-4c19-b56d-45315acf2d02.PNG)
+![featured](https://user-images.githubusercontent.com/27057402/218233601-d1e35bdb-6119-4c04-baa3-3e2f70119bce.PNG)
 When users enter the page they will be presented with all of the blogs made by existing users. These blogs are sorted by popularity measured by their followers and posts. From here, users can either look at indiviual blogs or sign up to make some of their own.
 
-![search filter2](https://user-images.githubusercontent.com/27057402/216796834-028523fb-9c29-4a21-a6df-ad4f71d413ad.png)
+![search filter](https://user-images.githubusercontent.com/27057402/218233612-d3fb8a8e-9624-43a2-83b2-1ca7abbb8747.PNG)
 Additionally, users can filter and search specifics blogs by typing part of their title in the searchbar.
 
 ### Login Page
@@ -27,66 +27,72 @@ Users are asked to sign up or login with the required information. Auth0 was use
 
 ### Navigation
 
-![blogs dropdown](https://user-images.githubusercontent.com/27057402/216796095-65c05819-d62b-46c0-8b09-9d9b32758d06.png)
+![blogs dropdown](https://user-images.githubusercontent.com/27057402/218233617-4ffdcd01-8fea-4f88-80d9-75434bbe2d9b.png)
 
 The NavBar has multiple options for the users to pick from. The View Blogs dropdown provides the users with a few different pages where they can see blogs and posts made by the overall userbase. My Blogs will send the user to their personal page. 
 
-![notifications](https://user-images.githubusercontent.com/27057402/216796162-36a3f417-de68-4612-af36-ec1db60ebbf3.png)
+![notif dropdown](https://user-images.githubusercontent.com/27057402/218233620-bee24331-e403-4eef-9a9a-3e6e96de9b26.png)
 
 The Notifications bell icon will light up in the NavBar if the users has any notifications. The dropdown will display up to 3 of the lastest notifications they had. From here, they can choose to clear their notifications or view them all in the Notifications page shown below:
 
-![notif page](https://user-images.githubusercontent.com/27057402/216796205-fa46af06-5891-4b42-8f2a-dbb9ddf45036.PNG)
+![notif page](https://user-images.githubusercontent.com/27057402/218233622-04546159-84a1-41a1-8398-eb826be968cd.PNG)
 
 ### Recent Posts Page
 
-![recent posts](https://user-images.githubusercontent.com/27057402/216796300-cdf18b95-5971-41c9-b033-aa137dac80df.PNG)
+![recent posts](https://user-images.githubusercontent.com/27057402/218233625-89812c27-7d33-48c0-99b0-d1910db93401.PNG)
 
 The most recent posts by all users on the website database are shown here.
 
 ### Followed Blogs Page
 
-![followed blogs](https://user-images.githubusercontent.com/27057402/216796373-80b193b0-de3a-4d0c-831e-0443c5998306.PNG)
+![followed](https://user-images.githubusercontent.com/27057402/218233630-54287603-3618-44f7-9da8-5a32a46031d5.PNG)
 
 Logged in users can view all of the blogs they're following on this page. Clicking on any of them will allow users to view more of the details of each blog.
 
 ### User Page
 
-![user page](https://user-images.githubusercontent.com/27057402/216795859-72b03e2b-f016-46b6-a620-318e1d9b5fb1.PNG)
+![user page](https://user-images.githubusercontent.com/27057402/218233633-1f03d71f-37d0-4346-96be-568f93be3f13.PNG)
 
 If the user logs into their account, they can access their blog page. Here, they can create a new blog, delete an existing blog, or view any of their blogs.
 
 ### View Blog Page 
 
-![view blog](https://user-images.githubusercontent.com/27057402/216795868-54c8d2f5-1569-4bd7-9b9e-5fb164a7392c.PNG)
+![view blog](https://user-images.githubusercontent.com/27057402/218233637-5621569d-3e02-4ba9-b0b7-0b9223bce73c.PNG)
 
 This page allows you to view all the posts made about the blog you're looking at. You can click on any of the posts if you'd like to interact or comment on them. Logged in users can follow the blog by clicking the star icon next to the blog title. If you are the user who created the blog, you have edit, delete, and post creation access on this page.
 
 ### View Post Page
 
-![view post](https://user-images.githubusercontent.com/27057402/216796349-a623d1d2-3f96-44c1-80f2-4dcf883a83b4.PNG)
+![view post](https://user-images.githubusercontent.com/27057402/218233641-da290be1-fbd7-41a7-839d-565e9d057fd4.PNG)
 
 This page contains all the details of the selected post. On this page, logged in users can like/dislike the post or any of the comments in it. They can also comment on the post directly as well. If the logged in user is the owner of the post, they have edit and delete access to it. Users also have access to delete any of their own comments on this page.
 
+### Mobile Support
+
+![responsive](https://user-images.githubusercontent.com/27057402/218233679-cf066b2e-10b1-441b-adca-a5634df3c40d.png)
+
+The website is fully responsive and workd for mobile devices.
+
 ### Create Blog Page 
 
-![create blog](https://user-images.githubusercontent.com/27057402/216796535-14c882da-a1f0-4d53-90e0-5639447c4df6.PNG)
+![create blog](https://user-images.githubusercontent.com/27057402/218233645-e9b52201-1d49-4c2c-9f80-c6670ae78294.PNG)
 
 Users can create a blog on this page by entering the necessary data. Currently, users only have to specify the title of the blog.
 
 ### Edit Blog Page 
 
-![edit blog](https://user-images.githubusercontent.com/27057402/216796493-6a4645d1-0fce-4d86-902d-679b3ebc8e7d.PNG)
+![edit blog](https://user-images.githubusercontent.com/27057402/218233650-7f12fbd5-918a-4ec2-a879-c98f5d868e50.PNG)
 
 Users can make revisions to an existing post here.
 
 ### Create Post Page 
 
-![create post](https://user-images.githubusercontent.com/27057402/216796539-17d03d4e-661a-4935-937f-4c54308dc089.PNG)
+![create post](https://user-images.githubusercontent.com/27057402/218233653-118ac60c-c2ad-4c13-b4c1-d151292890f6.PNG)
 
 Users can make a post here by specifying its title and content.
 
 ### Edit Post Page 
 
-![edit post](https://user-images.githubusercontent.com/27057402/216796462-f1d27a2f-bb73-4985-aa5e-76135611ca18.PNG)
+![edit post](https://user-images.githubusercontent.com/27057402/218233654-9f493146-8ce6-4c90-af23-1466b0c5273b.PNG)
 
 Users can make revisions to an existing post here.
