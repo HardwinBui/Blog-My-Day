@@ -11,6 +11,17 @@ const FeatureBlog = (props) => (
       <br /><br />
       <h2>{props.record.name}</h2>
       <br />
+
+      {props.record.img !== undefined && props.record.img !== "" && props.record.img !== null &&
+        <div>
+          <div class="image-icon">
+            <img src={props.record.img} alt="Image" />
+          </div>
+          <br />
+        </div>
+      }
+
+      
       <h5>by {props.record.user}</h5>
       <h6><em>created on {new Date(props.record.date_created).toLocaleDateString()}</em></h6>
 
